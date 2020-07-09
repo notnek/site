@@ -47,6 +47,16 @@ export default {
     link: [
       { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
       { rel: 'mask-icon', href: '/pinned-tab.svg', color: '#2B6CB0' },
+      {
+        rel: 'alternate',
+        href: 'https://kenton.glass/feed/rss.xml',
+        type: 'application/rss+xml',
+      },
+      {
+        rel: 'alternate',
+        href: 'https://kenton.glass/feed/feed.json',
+        type: 'application/json',
+      },
     ],
   },
   /*
@@ -81,6 +91,8 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    // Doc: https://github.com/nuxt-community/feed-module,
+    '@nuxtjs/feed',
   ],
   /*
    ** Content module configuration
@@ -92,6 +104,49 @@ export default {
         theme: false,
       },
     },
+  },
+  /*
+   ** Feed module configuration
+   ** See https://github.com/nuxt-community/feed-module#configuration
+   */
+  feed() {
+    const { $content } = require('@nuxt/content');
+    const baseUrlArticles = 'https://kenton.glass/articles';
+    const baseLinkFeedArticles = '/feed';
+    const feedFormats = {
+      rss: { type: 'rss2', file: 'rss.xml' },
+      json: { type: 'json1', file: 'feed.json' },
+    };
+    const createFeedArticles = async function (feed) {
+      feed.options = {
+        title: 'Articles by Kenton Glass',
+        description:
+          'Ramblings about life, sports and programming from Kenton Glass.',
+        link: baseUrlArticles,
+      };
+
+      const articles = await $content('articles').fetch();
+
+      articles.forEach((article) => {
+        const url = `${baseUrlArticles}/${article.slug}`;
+
+        feed.addItem({
+          title: article.title,
+          id: url,
+          link: url,
+          date: article.published,
+          description: article.summary,
+          content: article.summary,
+          author: article.authors,
+        });
+      });
+    };
+
+    return Object.values(feedFormats).map(({ file, type }) => ({
+      path: `${baseLinkFeedArticles}/${file}`,
+      type,
+      create: createFeedArticles,
+    }));
   },
   /*
    ** Build configuration
