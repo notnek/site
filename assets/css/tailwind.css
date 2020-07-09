@@ -1,3 +1,223 @@
 @tailwind base;
 @tailwind components;
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  @apply max-w-xl;
+
+  ul li:before {
+    content: "-";
+    @apply inline-block mr-2;
+  }
+}
+
+a {
+  @apply text-blue-700;
+
+  @screen dark-mode {
+    @apply text-blue-300;
+  }
+
+  &:hover {
+    @apply text-gray-900 underline;
+
+    @screen dark-mode {
+      @apply text-gray-100;
+    }
+  }
+}
+
+h1 {
+  @apply text-xl leading-tight mb-4;
+
+  @screen md {
+    @apply text-3xl;
+  }
+
+  span {
+    @apply font-bold;
+  }
+}
+
+h2 {
+  @apply text-xl font-bold;
+}
+
+h3 {
+  @apply text-lg font-bold;
+}
+
+.nuxt-content {
+  a {
+    @apply .underline;
+
+    &:hover {
+      @apply .no-underline;
+    }
+  }
+
+  > *:not(:last-child) {
+    @apply mb-4;
+  }
+
+  img {
+    @apply w-full rounded;
+  }
+
+  .video {
+    @apply w-full relative pb-9/16 rounded;
+
+    iframe {
+      @apply absolute top-0 left-0 w-full h-full;
+    }
+  }
+
+  ol {
+    counter-reset: olItem;
+
+    &:before {
+      counter-increment: olItem;
+      content: counter(olItem) ".";
+      @apply inline-block mr-1;
+    }
+  }
+
+  blockquote {
+    @apply p-4 italic border-l-8 border-blue-700;
+
+    @screen dark-mode {
+      @apply border-blue-300;
+    }
+  }
+
+  code[class*="language-"],
+  pre[class*="language-"] {
+    @apply bg-gray-200 font-mono whitespace-pre break-normal leading-normal rounded;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    tab-size: 2;
+    hyphens: none;
+
+    @screen dark-mode {
+      @apply bg-gray-700;
+    }
+  }
+
+  pre[class*="language-"]::-moz-selection,
+  pre[class*="language-"] ::-moz-selection,
+  code[class*="language-"]::-moz-selection,
+  code[class*="language-"] ::-moz-selection,
+  pre[class*="language-"]::selection,
+  pre[class*="language-"] ::selection,
+  code[class*="language-"]::selection,
+  code[class*="language-"] ::selection {
+    @apply bg-gray-100;
+    text-shadow: none;
+
+    @screen dark-mode {
+      @apply bg-gray-900;
+    }
+  }
+
+  pre[class*="language-"] {
+    @apply p-4 mx-2 overflow-auto;
+  }
+
+  :not(pre) > code[class*="language-"],
+  pre[class*="language-"] {
+    @apply bg-gray-200;
+
+    @screen dark-mode {
+      @apply bg-gray-700;
+    }
+  }
+
+  :not(pre) > code {
+    @apply p-1 rounded whitespace-normal;
+  }
+
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    @apply text-gray-500;
+  }
+
+  .token.punctuation {
+    @apply text-gray-700;
+  }
+
+  .token.namespace {
+    @apply opacity-75;
+  }
+
+  .token.property,
+  .token.tag,
+  .token.boolean,
+  .token.number,
+  .token.constant,
+  .token.symbol,
+  .token.deleted {
+    @apply text-pink-500;
+  }
+
+  .token.selector,
+  .token.attr-name,
+  .token.string,
+  .token.char,
+  .token.builtin,
+  .token.inserted {
+    @apply text-green-500;
+  }
+
+  .token.operator,
+  .token.entity,
+  .token.url,
+  .language-css .token.string,
+  .style .token.string {
+    @apply text-yellow-700;
+
+    @screen dark-mode {
+      @apply text-yellow-500;
+    }
+  }
+
+  .token.atrule,
+  .token.attr-value,
+  .token.keyword {
+    @apply text-blue-500;
+  }
+
+  .token.function,
+  .token.class-name {
+    @apply text-pink-500;
+  }
+
+  .token.regex,
+  .token.important,
+  .token.variable {
+    @apply text-yellow-700;
+
+    @screen dark-mode {
+      @apply text-yellow-500;
+    }
+  }
+
+  .token.important,
+  .token.bold {
+    @apply font-bold;
+  }
+  .token.italic {
+    @apply italic;
+  }
+
+  .token.entity {
+    @apply cursor-help;
+  }
+}
+
 @tailwind utilities;
