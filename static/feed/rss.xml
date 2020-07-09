@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Articles by Kenton Glass</title>
+        <link>https://kenton.glass/articles</link>
+        <description>Ramblings about life, sports and programming from Kenton Glass.</description>
+        <lastBuildDate>Thu, 09 Jul 2020 21:18:34 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>https://github.com/nuxt-community/feed-module</generator>
+    </channel>
+</rss>
