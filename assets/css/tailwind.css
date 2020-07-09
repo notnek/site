@@ -93,9 +93,21 @@ h3 {
     }
   }
 
+  .nuxt-content-highlight {
+    @apply bg-gray-200 font-mono whitespace-pre break-normal leading-normal rounded p-4;
+  }
+
+  .filename {
+    @apply block text-gray-600 italic mb-4;
+
+    &::before {
+      content: "#";
+      @apply mr-2;
+    }
+  }
+
   code[class*="language-"],
   pre[class*="language-"] {
-    @apply bg-gray-200 font-mono whitespace-pre break-normal leading-normal rounded;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
@@ -124,7 +136,7 @@ h3 {
   }
 
   pre[class*="language-"] {
-    @apply p-4 mx-2 overflow-auto;
+    @apply overflow-auto;
   }
 
   :not(pre) > code[class*="language-"],

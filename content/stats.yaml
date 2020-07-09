@@ -1,0 +1,43 @@
+skills:
+  - HTML
+  - CSS
+  - Sass
+  - JavaScript
+  - Vue
+  - React
+  - Ruby
+  - 'Ruby on Rails'
+  - PHP
+  - Laravel
+projects:
+  -
+    name: 'Bubba''s 33'
+    url: 'https://www.bubbas33.com'
+  -
+    name: 'Texas Roadhouse'
+    url: 'https://www.texasroadhouse.com'
+  -
+    name: 'Legent Bourbon'
+    url: 'https://www.legentbourbon.com'
+  -
+    name: 'Maker''s Mark'
+    url: 'https://www.makersmark.com'
+  -
+    name: 'Inked Brands'
+    url: 'https://www.inkedbrands.com'
+  -
+    name: 'Studio Calico'
+    url: 'https://www.studiocalico.com'
+externalLinks:
+  -
+    name: GitHub
+    url: 'https://github.com/notnek'
+  -
+    name: Twitter
+    url: 'https://twitter.com/notnek'
+  -
+    name: Instagram
+    url: 'https://instagram.com/kenton'
+  -
+    name: LinkedIn
+    url: 'https://linkedin.com/in/kentonglass'
