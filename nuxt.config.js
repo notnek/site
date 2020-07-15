@@ -13,6 +13,9 @@ export default {
    ** See https://nuxtjs.org/api/configuration-target
    */
   target: 'static',
+  loading: {
+    color: '#2B6CB0',
+  },
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
