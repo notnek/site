@@ -6,7 +6,7 @@
 }
 
 main {
-  @apply max-w-xl;
+  @apply max-w-2xl;
 
   ul li:before {
     content: "-";
@@ -101,7 +101,7 @@ h3 {
     @apply block text-gray-600 italic mb-4;
 
     &::before {
-      content: "#";
+      content: "//";
       @apply mr-2;
     }
   }
@@ -149,7 +149,7 @@ h3 {
   }
 
   :not(pre) > code {
-    @apply p-1 rounded whitespace-normal;
+    @apply rounded whitespace-normal bg-gray-200 font-mono break-normal leading-normal;
   }
 
   .token.comment,
@@ -161,10 +161,6 @@ h3 {
 
   .token.punctuation {
     @apply text-gray-700;
-  }
-
-  .token.namespace {
-    @apply opacity-75;
   }
 
   .token.property,
@@ -200,6 +196,7 @@ h3 {
 
   .token.atrule,
   .token.attr-value,
+  .token.attr-value + .token.attr-name,
   .token.keyword {
     @apply text-blue-500;
   }
