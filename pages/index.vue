@@ -58,7 +58,7 @@ export default {
     },
   },
   head: {
-    titleTemplate: 'Kenton Glass, full-stack developer',
+    title: 'Kenton Glass, full-stack developer',
   },
 };
 </script>

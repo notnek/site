@@ -13,7 +13,7 @@
       <ul class="flex space-x-4">
         <li>
           <nuxt-link to="/" exact-active-class="underline">
-            About
+            Home
           </nuxt-link>
         </li>
         <li>
@@ -31,14 +31,17 @@
 export default {
   computed: {
     component() {
-      return this.$route.path === '/' ? 'h1' : 'div';
+      return this.useH1 ? 'h1' : 'div';
     },
     nameClasses() {
-      if (this.$route.path === '/') {
+      if (this.useH1) {
         return null;
       }
 
       return 'text-lg leading-tight mb-2 md:text-xl';
+    },
+    useH1() {
+      return ['/', '/about'].includes(this.$route.path);
     },
   },
 };

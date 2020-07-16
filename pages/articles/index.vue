@@ -36,7 +36,7 @@ export default {
     },
   },
   head() {
-    const title = 'Articles';
+    const title = 'Articles by Kenton Glass';
     const description =
       'Ramblings about life, sports and programming from Kenton Glass.';
 
