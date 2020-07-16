@@ -2,19 +2,19 @@
   <main>
     <h1 class="flex flex-col-reverse">
       <span class="font-bold">{{ article.title }}</span>
-      <span class="font-normal text-sm text-gray-600">
+      <span class="text-base font-normal text-gray-600 dark-mode:text-gray-400">
         {{ article.createdAt | fullDate }}
       </span>
     </h1>
 
     <nuxt-content :document="article" />
 
-    <div class="mt-12 text-sm flex justify-between">
+    <footer class="flex justify-between mt-12 text-base">
       <nuxt-link to="/articles" class="block">&larr; All Articles</nuxt-link>
       <div class="text-gray-600">
         Kenton Glass &copy; {{ article.createdAt | year }}
       </div>
-    </div>
+    </footer>
   </main>
 </template>
 
@@ -38,29 +38,32 @@ export default {
     };
   },
   head() {
+    const title = `${this.article.title} by Kenton Glass`;
+    const description = this.article.description || '';
+
     return {
-      title: this.article.title,
+      title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.article.description,
+          content: description,
         },
-        { hid: 'og:title', property: 'og:title', content: this.article.title },
+        { hid: 'og:title', property: 'og:title', content: title },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.article.description,
+          content: description,
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: this.article.title,
+          content: title,
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: this.article.description,
+          content: description,
         },
       ],
     };

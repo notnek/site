@@ -4,22 +4,24 @@
     <ul v-if="hasAnyArticles">
       <li v-for="article in articles" :key="article.path">
         <nuxt-link :to="article.path">{{ article.title }}</nuxt-link>
-        <span class="text-sm text-gray-600">{{ article.createdAt }}</span>
+        <span class="text-base text-gray-600 dark-mode:text-gray-400">
+          {{ article.createdAt }}
+        </span>
       </li>
     </ul>
     <p v-else>No articles yet.</p>
 
-    <h2 class="mt-4">Experience</h2>
+    <h2 class="mt-6">Experience</h2>
     <p>{{ skills }}</p>
 
-    <h2 class="mt-4">Featured Projects</h2>
+    <h2 class="mt-6">Featured Projects</h2>
     <ul>
       <li v-for="project in projects" :key="project.url">
         <a :href="project.url">{{ project.name }}</a>
       </li>
     </ul>
 
-    <h2 class="mt-4">Elsewhere</h2>
+    <h2 class="mt-6">Elsewhere</h2>
     <ul>
       <li v-for="link in externalLinks" :key="link.url">
         <a :href="link.url">{{ link.name }}</a>
@@ -58,7 +60,7 @@ export default {
     },
   },
   head: {
-    titleTemplate: 'Kenton Glass, full-stack developer',
+    title: 'Kenton Glass, full-stack developer',
   },
 };
 </script>
