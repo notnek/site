@@ -1,7 +1,7 @@
 <template>
   <main>
-    <h1 v-if="is404"><span>404</span>, page not found</h1>
-    <h1 v-else><span>Sorry</span>, an error occurred</h1>
+    <h1 v-if="is404">404<span>, page not found</span></h1>
+    <h1 v-else>Sorry<span>, an error occurred</span></h1>
     <nuxt-link to="/">Go to the homepage.</nuxt-link>
   </main>
 </template>

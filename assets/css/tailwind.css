@@ -25,14 +25,14 @@ a {
 }
 
 h1 {
-  @apply text-2xl leading-tight mb-4;
+  @apply text-3xl leading-tight mb-4 font-bold;
 
   @screen md {
     @apply text-4xl;
   }
 
   span {
-    @apply font-bold;
+    @apply font-normal;
   }
 }
 
@@ -129,7 +129,7 @@ h3 {
   }
 
   :not(pre) > code {
-    @apply rounded whitespace-normal bg-gray-200 font-mono break-normal px-1;
+    @apply rounded whitespace-normal bg-gray-200 font-mono break-normal p-1;
 
     @screen dark-mode {
       @apply bg-gray-800;
@@ -147,7 +147,7 @@ h3 {
     @apply text-gray-700;
 
     @screen dark-mode {
-      @apply text-gray-500;
+      @apply text-gray-300;
     }
   }
 
