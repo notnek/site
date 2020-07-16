@@ -1,10 +1,18 @@
 <template>
   <main>
     <h1 class="flex flex-col-reverse">
-      <span class="font-bold">{{ article.title }}</span>
-      <span class="text-base font-normal text-gray-600 dark-mode:text-gray-400">
-        {{ article.createdAt | fullDate }}
-      </span>
+      <nuxt-link
+        class="font-bold text-gray-900 dark-mode:text-gray-100 hover:no-underline"
+        :to="article.path"
+      >
+        {{ article.title }}
+      </nuxt-link>
+      <div class="text-base font-normal text-gray-600 dark-mode:text-gray-400">
+        {{ article.publishedAt | formatFullDate }}
+        <span v-if="hasBeenEdited">
+          / Last updated on {{ article.editedAt | formatFullDate }}
+        </span>
+      </div>
     </h1>
 
     <nuxt-content :document="article" />
@@ -12,30 +20,29 @@
     <footer class="flex justify-between mt-12 text-base">
       <nuxt-link to="/articles" class="block">&larr; All Articles</nuxt-link>
       <div class="text-gray-600">
-        Kenton Glass &copy; {{ article.createdAt | year }}
+        Kenton Glass &copy; {{ article.publishedAt | formatYear }}
       </div>
     </footer>
   </main>
 </template>
 
 <script>
-import format from 'date-fns/format';
-
 export default {
-  filters: {
-    year(date) {
-      return format(new Date(date), 'y');
-    },
-    fullDate(date) {
-      return format(new Date(date), 'MMMM do, y');
-    },
-  },
   async asyncData({ $content, params }) {
     const article = await $content('articles', params.slug).fetch();
 
     return {
       article,
     };
+  },
+  computed: {
+    hasBeenEdited() {
+      // TODO: switch back to createdAt/updatedAt once you can customize them in @nuxtjs/content
+      return (
+        this.article.editedAt &&
+        this.article.publishedAt !== this.article.editedAt
+      );
+    },
   },
   head() {
     const title = `${this.article.title} by Kenton Glass`;
