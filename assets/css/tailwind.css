@@ -6,8 +6,6 @@
 }
 
 main {
-  @apply max-w-2xl;
-
   ul li:before {
     content: "-";
     @apply inline-block mr-2;
