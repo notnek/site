@@ -96,11 +96,7 @@ h3 {
   }
 
   .filename {
-    @apply block text-gray-600 italic mb-4;
-
-    @screen dark-mode {
-      @apply text-gray-400;
-    }
+    @apply block text-gray-500 italic mb-4;
 
     &::before {
       content: "//";
