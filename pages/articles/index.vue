@@ -4,7 +4,9 @@
     <ul v-if="anyArticles">
       <li v-for="article in articles" :key="article.path">
         <nuxt-link :to="article.path">{{ article.title }}</nuxt-link>
-        <span class="text-sm text-gray-600">{{ article.createdAt }}</span>
+        <span class="text-base text-gray-600 dark-mode:text-gray-400">
+          {{ article.createdAt }}
+        </span>
       </li>
     </ul>
     <p v-else>No articles yet.</p>
