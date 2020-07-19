@@ -7,10 +7,10 @@ Caching your assets is a great and easy way to speed up your site’s load times
 First we need to turn on expiration for the files you want to have a long-lasting cache. This goes in your .htaccess file:
 
 ```bash[.htaccess]
-<;FilesMatch "\.(css|js|jpg|gif|png)$">;
+<FilesMatch "\.(css|js|jpg|gif|png)$">
 	ExpiresActive On
 	ExpiresDefault "access plus 10 years"
-<;/FilesMatch>;
+</FilesMatch>
 ```
 
 In the above snippet, we are searching for stylesheets, scripts and images and setting their expiration date to 10 years from now.

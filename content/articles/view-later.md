@@ -8,4 +8,4 @@ My needs are simple: 1) Save a URL, 2) Keep that information on my own server. I
 
 I’ve been running it on PHP 5.2.13 and MySQL 5.0.91 but I doubt you will have problems on any other LAMP flavor.
 
-Download the latest version of [View Later](https://github.com/notnek/view-later/archive/master.zip) [1.0.1] and check out -docs/README.txt for installation help.
+Download the latest version of [View Later](https://github.com/notnek/view-later/archive/master.zip) [1.0.1] and check out `-docs/README.txt` for installation help.

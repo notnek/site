@@ -14,7 +14,7 @@ As part of my reevaluation, a few of my daily apps have changed or become more h
 - [Transmit](http://panic.com/transmit) – When I need to access a server via FTP, this is my choice. Always been the best. _$34_
 - [CodeKit](http://incident57.com/codekit) – A nice app that does all sorts of things: compiling, image optimizing and browser reloads to name a few. _$25_
 
-*Cost: $817* (though CS6 cost me less since I work in higher education)
+**Cost: $817** (though CS6 cost me less since I work in higher education)
 
 ### Configurations
 As I’m sure everyone does, I’m very particular on how my apps are setup, not only for better work production, but a more enjoyable experience while working.
@@ -69,6 +69,6 @@ I use a handful of web services in my daily workflow, some free and some paid:
 - [BrowserStack](http://browserstack.com) – Gone are the days of multiple VMs on Parallels, Sign in and test in any browser you want. _Starts at $19/m_
 - [Ballpark](http://getballparkapp.com) – I’m not a huge fan of the business side of life, but Ballpark makes it easy to track time, invoice clients and get paid. They just relaunched a completely new version not long ago and have even integrated [Stripe](http://stripe.com) for online payments. _Starts free_
 
-*Cost per month: $39.16*
+**Cost per month: $39.16**
 
 So these are the apps and services I used on a daily basis to create websites. I like to reevaulate from time to time because a tool or service is only good if it’s making you work in a way where you produce better work. I’m excited to dive deeper into Sublime Text 2 and really tune it to be the workhorse that I’ve heard about.
