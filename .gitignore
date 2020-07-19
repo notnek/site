@@ -90,4 +90,4 @@ sw.*
 *.swp
 
 # RSS feed
-static/feed
+static/articles

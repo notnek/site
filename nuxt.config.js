@@ -12,6 +12,9 @@ export default {
   loading: {
     color,
   },
+  generate: {
+    fallback: true,
+  },
   head: {
     title: siteTitle,
     meta: [
@@ -60,7 +63,7 @@ export default {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
   ],
-  modules: ['@nuxtjs/pwa', '@nuxt/content', '@nuxtjs/feed'],
+  modules: ['@nuxt/content', '@nuxtjs/feed'],
   content: {
     markdown: {
       prism: {
