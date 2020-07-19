@@ -68,11 +68,18 @@ export default {
       },
     },
   },
+  hooks: {
+    'content:file:beforeInsert': (document) => {
+      if (document.extension === '.md') {
+        document.publishedAt = new Date(document.publishedAt);
+      }
+    },
+  },
   feed() {
     const { $content } = require('@nuxt/content');
     const createFeedArticles = async (feed) => {
       feed.options = {
-        title: 'Articles by Kenton Glass',
+        title: 'Kenton Glass',
         description:
           'Ramblings about life, sports and programming from Kenton Glass.',
         link: 'https://kenton.glass',
