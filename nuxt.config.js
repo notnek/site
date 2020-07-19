@@ -44,12 +44,12 @@ export default {
       { rel: 'mask-icon', href: '/pinned-tab.svg', color },
       {
         rel: 'alternate',
-        href: 'https://kenton.glass/feed/rss.xml',
+        href: 'https://kenton.glass/articles/rss.xml',
         type: 'application/rss+xml',
       },
       {
         rel: 'alternate',
-        href: 'https://kenton.glass/feed/feed.json',
+        href: 'https://kenton.glass/articles/feed.json',
         type: 'application/json',
       },
     ],
@@ -114,7 +114,7 @@ export default {
     };
 
     return Object.values(feedFormats).map(({ file, type }) => ({
-      path: `/feed/${file}`,
+      path: `/articles/${file}`,
       type,
       create: createFeedArticles,
     }));

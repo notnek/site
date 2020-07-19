@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Kenton Glass</title>
+        <link>https://kenton.glass</link>
+        <description>Ramblings about life, sports and programming from Kenton Glass.</description>
+        <lastBuildDate>Sun, 19 Jul 2020 21:33:01 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>https://github.com/nuxt-community/feed-module</generator>
+        <item>
+            <title><![CDATA[Adding dark mode to Tailwind CSS]]></title>
+            <link>https://kenton.glass//articles/adding-dark-mode-to-tailwind-css</link>
+            <guid>https://kenton.glass//articles/adding-dark-mode-to-tailwind-css</guid>
+            <pubDate>Wed, 15 Jul 2020 04:00:00 GMT</pubDate>
+            <description><![CDATA[<p><a href="https://tailwindcss.com">Tailwind CSS</a> is a great new utility-first framework that is quickly growing in popularity. I’ve become a huge fan of it since I can focus on writing CSS…</p>
+]]></description>
+            <content:encoded><![CDATA[<p><a href="https://tailwindcss.com">Tailwind CSS</a> is a great new utility-first framework that is quickly growing in popularity. I’ve become a huge fan of it since I can focus on writing CSS without switching contexts or worrying about <a href="https://www.martinfowler.com/bliki/TwoHardThings.html">naming classes</a>. It comes with a ton of functionality out-of-the-box including responsive  support via modifiers like <code>md</code> and <code>lg</code>. As dark- and light-modes are becoming more popular, there’s a push for supporting both on your site. This is easy to accomplish with the <code>prefers-color-scheme: dark</code> media query. This is very easy to add to Tailwind CSS and be able to utilize like their other responsive modifiers. Here’s how:</p>
+<p>Open up your <code>tailwind.config.js</code> . If you don’t have a config file yet, you can create one following <a href="https://tailwindcss.com/docs/configuration/">Tailwind CSS’s configuration guide</a>.</p>
+<p>We don’t want to lose the predefined media queries, so let’s <code>extend</code> a <code>screens</code> property to add our dark mode media query:</p>
+<pre><code class="language-js[tailwind.config.js]">module.exports = {
+  theme: {
+    extend: {
+      screens: {
+        dark: {
+          raw: &#39;(prefers-color-scheme: dark)&#39;,
+        },
+        // =&gt; @media (prefers-color-scheme: dark) { ... }
+      },
+    },
+  },
+};</code></pre>
+<p>Then you can add <code>dark:</code> prefix to any of your rules that support the <code>responsive</code> variant and those rules will take effect when dark mode is enabled!</p>
+<pre><code class="language-html">&lt;div class=“text-gray-900 dark:text-gray-100”&gt;
+  &lt;!-- ... --&gt;
+&lt;/div&gt;</code></pre>
+<p>Now get out there and support dark mode!</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[An Archive]]></title>
+            <link>https://kenton.glass//articles/an-archive</link>
+            <guid>https://kenton.glass//articles/an-archive</guid>
+            <pubDate>Mon, 11 Apr 2011 04:00:00 GMT</pubDate>
+            <description><![CDATA[<p>It’s always nice to look back. A few weeks ago, I stopped and took the time to remind myself of some old websites I’ve done that have helped me get to where I am today. Then I…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>It’s always nice to look back. A few weeks ago, I stopped and took the time to remind myself of some old websites I’ve done that have helped me get to where I am today. Then I thought I might as well share some old things. Here’s a list of projects that didn’t make it or sites that have been replaced, ordered by their last edit.</p>
+<ul>
+<li><a href="http://kenton.me/-/archive/v3">Personal Site [v3]</a></li>
+<li><a href="http://kenton.me/-/archive/v2">Personal Site [v2]</a></li>
+<li><a href="http://kenton.me/-/archive/metrosoiree">MetroSoiree</a></li>
+<li><a href="http://kenton.me/-/archive/v1">Personal Site [v1]</a></li>
+</ul>
+<p>For an updated list, I’ve setup an <a href="http://kenton.me/archive">archive</a>.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Dealing with WWW]]></title>
+            <link>https://kenton.glass//articles/dealing-with-www</link>
+            <guid>https://kenton.glass//articles/dealing-with-www</guid>
+            <pubDate>Fri, 07 Jan 2011 05:00:00 GMT</pubDate>
+            <description><![CDATA[<p>When you&#39;re finishing up a new site or revisiting an old one, it&#39;s a smart choice to make sure your URL is loaded the same way, with or without the www record.</p>
+<p>In some cases,…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>When you&#39;re finishing up a new site or revisiting an old one, it&#39;s a smart choice to make sure your URL is loaded the same way, with or without the www record.</p>
+<p>In some cases, <code>www.domain.com</code> serves different content than domain.com. However, for a vast majority of sites users get the same content either way, so it&#39;s important to setup your site so that there is a consistent URL that visitors&#39; and search engine crawlers see. It&#39;s an easy fix…</p>
+<p>You need to have an <a href="http://www.javascriptkit.com/howto/htaccess.shtml">.htaccess</a> file, and have the mod_rewrite engine turned on:</p>
+<pre><code class="language-bash[.htaccess]">RewriteEngine On</code></pre>
+<p>Then, it&#39;s just two lines to make your site either add www:</p>
+<pre><code class="language-bash[.htaccess]"># Add WWW
+RewriteCond %{HTTP_HOST} ^domain.com$ [NC]
+RewriteRule ^(.*)$ http://www.domain.com/$1 [R=301,L]</code></pre>
+<p>Or, to drop it like I&#39;ve done on my own site:</p>
+<pre><code class="language-bash[.htaccess]"># Remove WWW
+RewriteCond %{HTTP_HOST} ^www.domain.com$ [NC]
+RewriteRule ^(.*)$ http://domain.com/$1 [R=301,L]</code></pre>
+<p>That&#39;s it! Depending on which version you choose, visitors and crawlers will be automatically redirected to the correct setting of your domain.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Clean URLS]]></title>
+            <link>https://kenton.glass//articles/clean-urls</link>
+            <guid>https://kenton.glass//articles/clean-urls</guid>
+            <pubDate>Tue, 18 Jan 2011 05:00:00 GMT</pubDate>
+            <description><![CDATA[<p>I’d like to continue providing some simple tips on utilizing an .htaccess file to create some better URLs. Let’s be honest… no one wants to remember…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>I’d like to continue providing some simple tips on utilizing an .htaccess file to create some better URLs. Let’s be honest… no one wants to remember <code>domain.com/display.php?room=kitchen&amp;brand=cuisinart&amp;name=ice-cream-maker</code>. The variables are nearly impossible to retain when you’re quickly browsing a site. With that said, you should take a few minutes and setup a RewriteRule to clean up that nasty URL.</p>
+<p>You need to have the Rewrite Engine turned on for this to work:</p>
+<pre><code class="language-bash[.htaccess]"># Turn On
+RewriteEngine On</code></pre>
+<p>Now, let’s start by cleaning up just one of those variables. Take just <code>domain.com/display.php?room=kitchen</code>, we can easily clean that URL to read as <code>domain.com/kitchen</code>. Isn’t that much better?</p>
+<p>Here’s the one liner to make that URL work:</p>
+<pre><code class="language-bash[.htaccess]"># Pretty URL (ex. /room)
+RewriteRule ^([A-Za-z0-9-]+)/?$ display.php?room=$1 [NC,L]</code></pre>
+<p>This simple line is using a regular expression to match a URL to a specific file. Above we look for alphanumeric characters, as well as hyphens. Here are some other common patterns:</p>
+<pre><code class="language-bash[.htaccess]">.* # Any Character
+[A-Za-z-]+ # Letters and Hyphens
+[0-9]+ # Numbers</code></pre>
+<p>Now, you’re probably wondering how to clean up a multiple-variable URL like at the beginning of this article. It’s easy as counting 1, 2, 3… All you have to do is keep increasing your <code>$n</code> in your rule, like so:</p>
+<pre><code class="language-bash[.htaccess]"># Pretty URL (ex. /room/brand/name)
+RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$ display.php?room=$1&amp;brand=$2&amp;name=$3 [NC,L]</code></pre>
+<p>All your doing is creating a new pattern for each variable, then increasing your <code>$n</code> in the file name. After running this line in our .htaccess file, we end up with <code>domain.com/kitchen/cuisinart/ice-cream-maker</code>, a much improved URL.</p>
+<p>Flags are also a vital part to rewriting URLs. Think of them as a rule to the rule. In the preceding examples, I’ve used NC,L as my only flags, meaning my rule is not case sensitive and if the pattern matches, stop processing. There are other rules that you can check out when experimenting with better URLs.</p>
+<p>Utilizing the <a href="http://httpd.apache.org/docs/2.0/misc/rewriteguide.html">Apache mod_rewrite module</a>, you can create a much better URL scheme. Play around with what structures make the most sense to your site’s browsing experience.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Emma]]></title>
+            <link>https://kenton.glass//articles/emma</link>
+            <guid>https://kenton.glass//articles/emma</guid>
+            <pubDate>Sat, 10 Nov 2012 05:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Today I made a decision to pivot my life in a new direction. I’m moving to Nashville, Tennessee and joining the <a href="http://myemma.com/">Emma</a> family as a Front End Developer. I…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>Today I made a decision to pivot my life in a new direction. I’m moving to Nashville, Tennessee and joining the <a href="http://myemma.com/">Emma</a> family as a Front End Developer. I couldn’t be more excited.</p>
+<p>Two years ago, I had the privilege of having my print portfolio reviewed by some designers at Emma as well as getting a tour of their awesome office space (which by the way, <a href="https://maps.google.com/maps?q=9+Lea+Avenue,+Nashville,+TN&amp;hl=en&amp;hnear=9+Lea+Ave,+Nashville,+Tennessee+37210&amp;gl=us&amp;t=h&amp;z=16">they’ve moved</a> and their new space is tops). I left that night with the thought of how fun and interesting it would be to work there. I would have never thought that in Fall 2012, I’d find myself joining the crew with much excitement and eagerness to push the company even further.</p>
+<p>I can’t wait to get down to Nashville and get to work.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Let's Start Here]]></title>
+            <link>https://kenton.glass//articles/lets-start-here</link>
+            <guid>https://kenton.glass//articles/lets-start-here</guid>
+            <pubDate>Sun, 07 Oct 2012 04:00:00 GMT</pubDate>
+            <description><![CDATA[<p>I’m not sure where to start so I’ll start here: <em>a new post for a refreshed site for a renewed spirit.</em></p>
+<p>The last few months, I had lost the drive to create. Every night when it…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>I’m not sure where to start so I’ll start here: <em>a new post for a refreshed site for a renewed spirit.</em></p>
+<p>The last few months, I had lost the drive to create. Every night when it was time for bed, I wasn’t satisfied with anything I had done that day. I thought new relationships could solve it. I thought new work projects could solve it. Hell, I thought eating a different cereal for breakfast would get me out of this rut. Nope. I longed for the feeling of creating something and being honestly giddy at the final product, and the excitement I’ve come to known with so many great projects I’ve been lucky enough to work on. But, with every change nothing changed.</p>
+<p>The more I thought about it, the more I tried to rationalize that it was something that would pass in time. But I slowly began to realize it was something that I needed to be proactive about and continously work on. So, I’ve decided to force myself to do a few things.</p>
+<h2 id="1-eat-3-meals-a-day">1. Eat 3 Meals a Day</h2>
+<p>For far too long, I’ve made it on lunch and dinner skipping arguably the most important meal of the day. Last weekend, I picked up a compact fridge to put in my office to make eating breakfast as easy as possible.</p>
+<h2 id="2-reflect">2. Reflect</h2>
+<p>I need to make time for daily reflection, not just when things are extraordinarly good or bad.</p>
+<h2 id="3-read">3. Read</h2>
+<p>My stack of books to read has been growing taller and taller (Thanks <a href="http://twitter.com/sesoeder">Scott</a>!) and I need to be reading them instead of dumbing out in front of the television.</p>
+<h2 id="4-create">4. Create</h2>
+<p>Whether it’s a personal or client project, writing here, or taking a few hours to mess around on the banjo, I need to express myself.</p>
+<p>These may seem silly and insignificant to most, but I think being proactive with a few changes can’t hurt…maybe it’ll put me right back on track.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[On to Louisville]]></title>
+            <link>https://kenton.glass//articles/on-to-louisville</link>
+            <guid>https://kenton.glass//articles/on-to-louisville</guid>
+            <pubDate>Mon, 22 Nov 2010 05:00:00 GMT</pubDate>
+            <description><![CDATA[<p>After more than 6 months of searching and interviewing, I have just accepted a web position at the <a href="https://louisville.edu/delphi">Delphi Center</a> at the [University of…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>After more than 6 months of searching and interviewing, I have just accepted a web position at the <a href="https://louisville.edu/delphi">Delphi Center</a> at the <a href="https://louisville.edu">University of Louisville</a>. I&#39;m very excited about the future.</p>
+<p>See you soon Louisville.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Rolling My Own Ad Platform]]></title>
+            <link>https://kenton.glass//articles/rolling-my-own-ad-platform</link>
+            <guid>https://kenton.glass//articles/rolling-my-own-ad-platform</guid>
+            <pubDate>Wed, 29 Feb 2012 05:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Over the last few months, I’ve been working on a complete overhaul of our different websites in <a href="http://louisville.edu/delphi">my division</a> at <a href="http://louisville.edu/">UofL</a>. Part…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>Over the last few months, I’ve been working on a complete overhaul of our different websites in <a href="http://louisville.edu/delphi">my division</a> at <a href="http://louisville.edu/">UofL</a>. Part of the design I landed on in the fall, incorporated an internal ad spot, where we could either advertise programs and offerings, or cross-sell them. I knew that I wanted to make this platform robust, but easy to use since people managing ads aren’t web developers. I landed on a solution that uses PHP/MySQL on an different server and JavaScript to serve ad.</p>
+<p>Here’s how I’ve got it setup:</p>
+<p>Using jQuery, on <code>document.ready()</code>, I append my script from the remove server and pass the current URL:</p>
+<pre><code class="language-js">$(&#39;body&#39;).append(&#39;&lt;script type=&quot;text/javascript&quot; src=&quot;http://remoteserver.com/ad.php?js&amp;u=&#39; + location.href + &#39;&quot;&gt;&lt;/script&gt;&#39;);</code></pre>
+<p>I could add this script to the <code>&lt;head&gt;</code> or just before <code>&lt;/body&gt;</code> but due to the way the university’s system is setup, this is the best way. Since I’m using PHP/MySQL to manage the indiviual ads, you’ll notice that the script is actually a PHP file. So what does this script do?</p>
+<p>After reading this <a href="http://24ways.org/2011/defending-the-perimeter-against-web-widgets">article on 24 ways</a> about not hurting a page when an external script was not available, I decided to set my script up the same way. So my script gathers ad based on the URL and some other details and runs a simple function that writes out HTML:</p>
+<pre><code class="language-js">// ...database lookup and logic...
+publishAd(&#39;&lt;div class=&quot;ad&quot;&gt;&#39; + title + media + body + &#39;&lt;/div&gt;&#39;);</code></pre>
+<p>I know you’re asking yourself how is he running a function that doesn’t exist. Typically, this is when you see an <code>undefined</code> error in your console. It just so happens that I have the publishAd function defined in the same file as the append above. Here it is:</p>
+<pre><code class="language-js">function publishAd(content){
+    if(content.length &gt; 0){
+        $(&#39;#ad-block&#39;).html(content).show();
+        $(&#39;#ad-block&#39;).fitVids();
+        $(&#39;#ad-block a&#39;).attr(&#39;target&#39;,&#39;_blank&#39;);
+    }
+}</code></pre>
+<p>A couple of things going on here: passing the HTML from above and only continuing if something exists; inserting the HTML into a predefined div on the webpage; binding the helpful <a href="http://fitvidsjs.com/">fitVids</a> plugin to make videos responsive; and adding a target attribute to have all links in the ad open a new window.</p>
+<p>What I won’t go into detail here is the administration side of this platform. I’ve built a simple webform for my colleagues to create text, image and video ads that they can set to start and end at specific times, only show on certain pages and other types of customization. That form saves their ad data to a database which the above ad.php reads from the print the ad.</p>
+<p>This was a neat piece of our redesign that I had a lot of fun experimenting with.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[MyDVDShelf Gets an Update]]></title>
+            <link>https://kenton.glass//articles/mydvdshelf-gets-an-update</link>
+            <guid>https://kenton.glass//articles/mydvdshelf-gets-an-update</guid>
+            <pubDate>Tue, 05 Apr 2011 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>I created <a href="http://mydvdshelf.com">MyDVDShelf.com</a> for the sole purpose of keeping track of all of my DVDs. Three years later, I’m still spending a fair amount of time on it. Last…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>I created <a href="http://mydvdshelf.com">MyDVDShelf.com</a> for the sole purpose of keeping track of all of my DVDs. Three years later, I’m still spending a fair amount of time on it. Last night, I wrapped up the most substantial update since I relaunched the service nearly a year ago. I’m happy to finally finish some neat features that were on my mind before the wild months of moving and starting a new job. Here are some insights on the update</p>
+<h2 id="tags">Tags</h2>
+<p>Probably the number one requested feature was a way to categorize your DVDs. Specifically, users wanted the ability to separate their Blu-Rays from regular DVDs. This feature had been on my todo list for well over a year and I’m glad to finally push it out for everyone to use. When approaching the problem, I first thought it would be easy to let users check whether it was a Blu-Ray or a DVD and that would be it. However, as development went on and I kept thinking back to the experience of cataloging DVDs, I knew it wasn’t that simple. I decided to roll out a tagging system similar to those found in blogging platforms. With a generic tagging system in place, a user can define any tag they want to categorize their DVDs. If they want to only use Blu-Ray and DVD, that’s fine. But for the hardcore organizers like myself, we can tag our DVDs by genre, director, anything. I’m very happy with the way it turned out and I believe users are as well. There were over 400 tagged DVDs shortly after the update.</p>
+<h2 id="loan-reminders">Loan Reminders</h2>
+<p>It’s so easy to forget who has borrowed a DVD. With MyDVDShelf, it’s always been easy to keep track of those loaned DVDs. But, there seemed to be something missing. A way to be automatically reminded that, “Hey, Devin borrowed Primer 3 months ago!” With the latest update, that reminder is now available. Users can subscribe to weekly reminder emails in their account settings and once a week, they’ll receive an email that contains all of their current loans.</p>
+<h2 id="ipad">iPad</h2>
+<p>I love my iPad. So does everyone I know that owns one. I know I would love to access MyDVDShelf in a native way on it. However, I do not have the time nor the knowledge to develop such an app. But, I have spent some time developing an optimized web app that can be placed on the home screen. Currently, it’s not feature complete, but it’s definitely usable and a new, unique way to browse your DVD collection. <a href="http://ipad.mydvdshelf.com/">Head on over</a> to play around with it.</p>
+<p>And yes, an iPhone version is on the way.</p>
+<h2 id="process">Process</h2>
+<p>The biggest complaint I received was how inconvenient it was to add a series of DVDs, think multiple TV seasons. Say, for example, you own every season of LOST and want to put them on your shelf. In the past, you would search for LOST, then click Add next to the season you wanted to put on your shelf. You would then be directed to the page for that DVD. Now, for most movies that process is perfectly acceptable, and it would be fine if you only owned one season of The Office, but you don’t. Most people that own DVDs of TV seasons own multiple seasons. With that complaint in mind, I rewrote the entire process so that now a user can use every available DVD feature without leaving or refreshing the page. Technically, someone can wish for a DVD, add it, tag it, loan it to a friend, return it, and finally remove it without every reloading the page. It makes for a vast speed improvement when adding DVDs, especially if you’re just getting started.</p>
+<p>These are the major points of the update, but there are many, many smaller pieces that have greatly improved the service. With each new idea, several others spawn and there are many new things coming down the pipe. Stay tuned…</p>
+<p>Don’t have a shelf yet? <a href="http://web.archive.org/web/20130714105510/http://mydvdshelf.com/">Get started now!</a></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Simple]]></title>
+            <link>https://kenton.glass//articles/simple</link>
+            <guid>https://kenton.glass//articles/simple</guid>
+            <pubDate>Mon, 08 Oct 2012 04:00:00 GMT</pubDate>
+            <description><![CDATA[<p>The last iteration of my site last nearly two years, which I will proudly claim as a personal record. I had known for a while that I wanted to simplify it even further and of…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>The last iteration of my site last nearly two years, which I will proudly claim as a personal record. I had known for a while that I wanted to simplify it even further and of course, add support for all devices instead of my poor 1,000px viewport hack I had before. So I set out this past weekend to refresh my personal site. I ended up moving from static files and Tumblr to WordPress. I’ve been using WordPress a lot lately for clients, and now that I’m teaching another class on the platform, I thought it made sense to build my own site on it. I also hope having these posts on my home page will force me to write more frequently. I’m happy with how everything ended up and it should allow me to focus on some exciting things coming down the pipe.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[setVersion() – Automate Your Caching Process]]></title>
+            <link>https://kenton.glass//articles/setversion-automate-your-caching-process</link>
+            <guid>https://kenton.glass//articles/setversion-automate-your-caching-process</guid>
+            <pubDate>Sun, 24 Apr 2011 04:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Caching your assets is a great and easy way to speed up your site’s load times. However, it can be time consuming to rename files and messy to keep several versions of files on…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>Caching your assets is a great and easy way to speed up your site’s load times. However, it can be time consuming to rename files and messy to keep several versions of files on your server. A lot of sites have used query strings, <code>styles.css?v=1</code>, to accomplish this cache. I believe it’s better to use a full, versioned filename like styles.1.css, so that the user’s browsers pulls a distinct file. It’s a fairly simple process and I’ll show you how to automate the numbering.</p>
+<p>First we need to turn on expiration for the files you want to have a long-lasting cache. This goes in your .htaccess file:</p>
+<pre><code class="language-bash[.htaccess]">&lt;FilesMatch &quot;\.(css|js|jpg|gif|png)$&quot;&gt;
+    ExpiresActive On
+    ExpiresDefault &quot;access plus 10 years&quot;
+&lt;/FilesMatch&gt;</code></pre>
+<p>In the above snippet, we are searching for stylesheets, scripts and images and setting their expiration date to 10 years from now.</p>
+<p>Now, we need to setup a RewriteRule to handle the new file names. This also goes in the .htaccess file:</p>
+<pre><code class="language-bash[.htaccess]">RewriteEngine On
+RewriteRule ^(.*)\.[0-9]+\.(css|js|jpg|gif|png)$ $1.$2 [L]</code></pre>
+<p>Please note that you must turn the <code>RewriteEngine</code> on. In this snippet, the server searches for the same asset extensions as above and applies a rule to them: read file <code>styles.12345.css</code> as <code>styles.css</code>. Using this rule, you only have to keep one version of each file on your server, <code>styles.css</code>.</p>
+<p>So you could stick with what we’ve done so far and be set. Each time you wanted to update the cache, you’d change the number where you’re linking the asset. But, if you’re like me, that’s going to get really old, fairly quickly. Let’s bring in some server-side scripting to automate this process for you. Here’s a PHP function to rename the file on the fly:</p>
+<pre><code class="language-php">function setVersion($url){
+    $path       = pathinfo($url);
+    $version    = &#39;.&#39;.filemtime($_SERVER[&#39;DOCUMENT_ROOT&#39;].$url).&#39;.&#39;;
+    $cache_file = str_replace(&#39;.&#39;, $version, $path[&#39;basename&#39;]);
+    print $path[&#39;dirname&#39;].&#39;/&#39;.$cache_file;
+}</code></pre>
+<p>This function is pretty straight forward. First, <code>pathinfo()</code> returns an array containing various parts of the file. Then creates a string containing the last modified time of the asset file using <code>filemtime()</code>. Next up is replacing the dot in the original file with our timestamp string. Lastly, we print out the new filename.</p>
+<p>Once you include that function on your page, it’s really simple to use, replace <code>/-/css/default.css</code>
+with <code>&lt;?php setVersion(&#39;/-/css/default.css&#39;); ?&gt;</code> and you’ll get: <code>/-/css/default.1298645866.css</code>.</p>
+<p>Together, with your .htaccess rule and PHP function, you’ve fully automated the caching process. Next time you save or upload an asset, the timestamp will be automatically updated.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Smooth Anchors]]></title>
+            <link>https://kenton.glass//articles/smooth-anchors</link>
+            <guid>https://kenton.glass//articles/smooth-anchors</guid>
+            <pubDate>Wed, 23 Feb 2011 05:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Long web pages usually have an anchor that takes you back to the top of the page. In most cases, the browser will skip right to the top when a user clicks that link. But using…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>Long web pages usually have an anchor that takes you back to the top of the page. In most cases, the browser will skip right to the top when a user clicks that link. But using <a href="http://jquery.com/">jQuery</a>, you can easily make your “Top of Page” anchors more pleasant.</p>
+<p>First, you need your anchored link:</p>
+<pre><code class="language-html">Going Up? &lt;a href=&quot;#top&quot; id=&quot;back-to-top&quot;&gt;Top&lt;/a&gt;</code></pre>
+<p>Now, add in a simple jQuery function to make the jump a bit smoother:</p>
+<pre><code class="language-js">$(document).ready(function(){
+    $(&#39;#back-to-top&#39;).click(function(e){
+        e.preventDefault();
+        $(&#39;html,body&#39;).animate({scrollTop:0},&#39;slow&#39;);
+    });
+});</code></pre>
+<p><em>Note: Be sure to include a copy of jQuery before calling this function.</em></p>
+<p>Breaking down this simple code, we assign a function to the click event for #back-to-top.</p>
+<p>In that function we prevent the default action, and use jQuery’s <a href="http://api.jquery.com/animate/">animate</a> to scroll to the top of html and body.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Tools of the Trade]]></title>
+            <link>https://kenton.glass//articles/tools-of-the-trade</link>
+            <guid>https://kenton.glass//articles/tools-of-the-trade</guid>
+            <pubDate>Wed, 24 Oct 2012 04:00:00 GMT</pubDate>
+            <description><![CDATA[<p>I’ve recently reevaluated the tools and services I use to accomplish the different tasks I’m faced with on a daily basis. I thought it might be helpful to some if I listed…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>I’ve recently reevaluated the tools and services I use to accomplish the different tasks I’m faced with on a daily basis. I thought it might be helpful to some if I listed everything I use, in both apps, configurations and web services. Let’s get started.</p>
+<h2 id="apps">Apps</h2>
+<p>As part of my reevaluation, a few of my daily apps have changed or become more heavily used:</p>
+<ul>
+<li><a href="http://sublimetext.com/2">Sublime Text 2</a> – The newest addition, I am amazed as the configuration and add-ons available. It took me a while to get on board with the initial setup, but I’m loving this app and it really is speeding up my work rate. <em>$59</em></li>
+<li><a href="http://en.wikipedia.org/wiki/Terminal_(OS_X)">Terminal</a> – I’m spending more and more of my time in the command line because it’s simply faster moving around my files and folders and actively versioning my assets. <em>Free</em></li>
+<li><a href="http://www.adobe.com/products/photoshop.html">Photoshop CS6</a> – Who doesn’t, right? <em>$699</em></li>
+<li><a href="http://google.com/chrome">Google Chrome</a> – The Web Inspector is constantly improving and in my opinion is <a href="http://www.youtube.com/watch?v=rf1GSjo4zSY">streets ahead</a> of Safari or Firefox. <em>Free</em></li>
+<li><a href="http://panic.com/transmit">Transmit</a> – When I need to access a server via FTP, this is my choice. Always been the best. <em>$34</em></li>
+<li><a href="http://incident57.com/codekit">CodeKit</a> – A nice app that does all sorts of things: compiling, image optimizing and browser reloads to name a few. <em>$25</em></li>
+</ul>
+<p><strong>Cost: $817</strong> (though CS6 cost me less since I work in higher education)</p>
+<h3 id="configurations">Configurations</h3>
+<p>As I’m sure everyone does, I’m very particular on how my apps are setup, not only for better work production, but a more enjoyable experience while working.</p>
+<h4 id="sublime-text-2">Sublime Text 2</h4>
+<ul>
+<li><a href="http://wbond.net/sublime_packages/package_control">Package Control</a></li>
+<li><a href="https://github.com/buymeasoda/soda-theme">Soda Theme – Dark</a></li>
+<li><a href="https://github.com/chriskempson/tomorrow-theme">Tomorrow Color Scheme – Eighties</a></li>
+<li><a href="https://github.com/SublimeText/Tag">Tag</a></li>
+<li><a href="https://github.com/dmatarazzo/Sublime-Text-2-Icon">A New Icon</a></li>
+<li><a href="http://wbond.net/sublime_packages/terminal">Terminal</a></li>
+<li>My Settings – Admittely I haven’t customized it much since I’m still exploring all of the features:</li>
+</ul>
+<pre><code class="language-json">{
+    &quot;color_scheme&quot;: &quot;Packages/Tomorrow Color Schemes/Tomorrow-Night-Eighties.tmTheme&quot;,
+    &quot;theme&quot;: &quot;Soda Dark.sublime-theme&quot;,
+    &quot;draw_indent_guides&quot;: false,
+    &quot;open_files_in_new_window&quot;: false
+}</code></pre>
+<h4 id="terminal">Terminal</h4>
+<ul>
+<li><a href="https://github.com/robbyrussell/oh-my-zsh">Oh My Zsh</a></li>
+<li><a href="https://github.com/chriskempson/tomorrow-theme">Tomorrow Theme</a></li>
+<li><a href="http://mxcl.github.com/homebrew">Homebrew</a></li>
+<li><a href="http://git-scm.com">Git</a></li>
+<li><a href="https://rvm.io">RVM</a></li>
+<li>My Zsh Theme:</li>
+</ul>
+<pre><code class="language-bash">function git_prompt_info() {
+  ref=$(git symbolic-ref HEAD 2&gt; /dev/null) || return
+  echo &quot;$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX&quot;
+}
+
+PROMPT=&#39;$fg[magenta]⌘ $fg[blue]${PWD/#$HOME/~} $(git_prompt_info)&#39;
+
+ZSH_THEME_GIT_PROMPT_PREFIX=&quot;[git:&quot;
+ZSH_THEME_GIT_PROMPT_SUFFIX=&quot;] $reset_color&quot;
+ZSH_THEME_GIT_PROMPT_DIRTY=&quot;$fg[red]+&quot;
+ZSH_THEME_GIT_PROMPT_CLEAN=&quot;$fg[green]&quot;</code></pre>
+<h2 id="web-services">Web Services</h2>
+<p>I use a handful of web services in my daily workflow, some free and some paid:</p>
+<ul>
+<li><a href="http://webfaction.com/?affiliate=kenton">WebFaction</a> – My hosting provider of choice. My clients and my own personal projects usually don’t garner large amounts of traffic so a shared hosting environment isn’t a big deal. WebFaction allows you to host any type of site, platform or application under one account, which is really nice. As example, in one site you could run a Rails app, WordPress and a third Django app all under domain, with very simple configuration. <em>Starts at $9.50/m</em></li>
+<li><a href="http://typekit.com">Typekit</a> – If necessary and the desired font is available, I use Typekit to serve my fonts. This site is currently serving <a href="https://typekit.com/colophons/shr3foc">a few fonts</a>. <em>Starts free with limitations</em></li>
+<li><a href="http://db.tt/jxnyrKO">Dropbox</a> – I’m not sure I know anyone that doesn’t use Dropbox, but it’s vital for my daily work with clients all over the map. <em>Starts free</em></li>
+<li><a href="http://bitbucket.org">Bitbucket</a> – Yes, I know the cool kids use GitHub, and while I’m on there as well, Bitbucket hosts all of my private Git repos without cost and some public as well. <em>Free for 5 users</em></li>
+<li><a href="http://browserstack.com">BrowserStack</a> – Gone are the days of multiple VMs on Parallels, Sign in and test in any browser you want. <em>Starts at $19/m</em></li>
+<li><a href="http://getballparkapp.com">Ballpark</a> – I’m not a huge fan of the business side of life, but Ballpark makes it easy to track time, invoice clients and get paid. They just relaunched a completely new version not long ago and have even integrated <a href="http://stripe.com">Stripe</a> for online payments. <em>Starts free</em></li>
+</ul>
+<p><strong>Cost per month: $39.16</strong></p>
+<p>So these are the apps and services I used on a daily basis to create websites. I like to reevaulate from time to time because a tool or service is only good if it’s making you work in a way where you produce better work. I’m excited to dive deeper into Sublime Text 2 and really tune it to be the workhorse that I’ve heard about.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[That Was Fun]]></title>
+            <link>https://kenton.glass//articles/that-was-fun</link>
+            <guid>https://kenton.glass//articles/that-was-fun</guid>
+            <pubDate>Sun, 14 Oct 2012 04:00:00 GMT</pubDate>
+            <description><![CDATA[<p>It’s been nearly a year since I’ve taught formally. I quickly remembered how tiring it is to project your voice over a classroom for nearly two hours. And I almost forgot how…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>It’s been nearly a year since I’ve taught formally. I quickly remembered how tiring it is to project your voice over a classroom for nearly two hours. And I almost forgot how refreshing and inspiring it was to listen to and answer questions that my students had. Sure, it isn’t a for-credit class, but <a href="http://louisville.edu/lifelonglearning/classes/webtechnologies">it’s a class</a> where students will immediately take what they’ve learned home and put their new knowledge to work on their personal projects, their business ideas, or as a stepping stone to learning something even greater. And for me…well, it was a chance to try to pass on things I’ve picked up in my short career and hopefully that knowledge transfer will impact one of my students.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Updating a Menu Based on Page Location]]></title>
+            <link>https://kenton.glass//articles/updating-a-menu-based-on-page-location</link>
+            <guid>https://kenton.glass//articles/updating-a-menu-based-on-page-location</guid>
+            <pubDate>Wed, 27 Jul 2011 04:00:00 GMT</pubDate>
+            <description><![CDATA[<p>There are plenty of sites that have sectioned pages which use an anchored link menu system to jump to each section. If you look back at [my smooth anchor…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>There are plenty of sites that have sectioned pages which use an anchored link menu system to jump to each section. If you look back at <a href="/articles/smooth-anchors">my smooth anchor post</a>, you can easily adapt that to make the jump behave a little bit nicer. But how about updating the menu so the user is reminded what section they’re on as they scroll down the page? It’s just a few lines of JavaScript+jQuery and you’ll be updating your menu on-the-fly. Let’s get started.</p>
+<p><em>Note: Be sure to include a copy of jQuery or this won’t work.</em></p>
+<p>First, let’s setup our menu’s HTML:</p>
+<pre><code class="language-html">&lt;ul id=&quot;menu&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#part-1&quot; class=&quot;active&quot;&gt;Part 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#part-2&quot;&gt;Part 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#part-3&quot;&gt;Part 3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#part-4&quot;&gt;Part 4&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#part-5&quot;&gt;Part 5&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<p>Here’s the function that checks the user’s current position from the top of the window. Then updates some classes in our menu. Based on different pixel counts, we’ll remove the <code>.active</code> class and add it to the appropriate list item.</p>
+<pre><code class="language-js">function scroll_update(){
+
+    // Get the current window position
+    var position = $(window).scrollTop();
+
+    // Remove the active state
+    $(&#39;#menu li a.active&#39;).removeClass(&#39;active&#39;);
+
+    // Set li to active based on position
+    if(position &lt;= 500){
+        $(&#39;#menu li:eq(0) a&#39;).addClass(&#39;active&#39;);
+    } else if(position &lt;= 1000){
+        $(&#39;#menu li:eq(1) a&#39;).addClass(&#39;active&#39;);
+    } else if(position &lt;= 1500){
+        $(&#39;#menu li:eq(2) a&#39;).addClass(&#39;active&#39;);
+    } else if(position &lt;= 2000){
+        $(&#39;#menu li:eq(3) a&#39;).addClass(&#39;active&#39;);
+    } else{
+        $(&#39;#menu li:eq(4) a&#39;).addClass(&#39;active&#39;);
+    }
+}</code></pre>
+<p>Now, we just need to tie this function to the window’s scroll event:</p>
+<pre><code class="language-js">$(window).scroll(scroll_update);</code></pre>
+<p>That’s it. Now when the user scrolls, your menu will be updated to reflect the current position. We can take this a little further for the sake of preventing the browser from firing our code on every vertical pixel.</p>
+<p>Using <a href="http://benalman.com/">Ben Alman’s</a> <a href="http://benalman.com/projects/jquery-throttle-debounce-plugin/">Throttle plugin</a>, we can limit the amount of times our code is fired. Since we’re only checking for change every 500 pixels, we can safely use this approach. First, include the Throttle plugin, then you’ll just need to update the scroll event:</p>
+<pre><code class="language-js">$(window).scroll($.throttle(500,scroll_update));</code></pre>
+<p>And that’s it. Now our event is only called every 500 milliseconds. This should help performance of your page, even if it may seem insignificant.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[View Later]]></title>
+            <link>https://kenton.glass//articles/view-later</link>
+            <guid>https://kenton.glass//articles/view-later</guid>
+            <pubDate>Sat, 22 Jan 2011 05:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Lately, I’ve needed an easy way to save a website that I may need/want to view later. Sure, I could use my built in bookmarks, or utitlize services like…</p>
+]]></description>
+            <content:encoded><![CDATA[<p>Lately, I’ve needed an easy way to save a website that I may need/want to view later. Sure, I could use my built in bookmarks, or utitlize services like <a href="http://instapaper.com/">Instapaper</a> or <a href="http://www.delicious.com/">Delicious</a>, or even the tried and true email to myself. However, there are multiple reasons why I really don’t want any of that. I don’t want to clutter up my browser, nor do I need all the functionality of those services and let them house my data, and I especially get tired of sending myself emails with just one URL in it.</p>
+<p>My needs are simple: 1) Save a URL, 2) Keep that information on my own server. In order to accomplish this, it was obvious I needed to roll my own solution. So I spent this weekend building out a simple URL saving service. It runs on a LAMP variation and is just a handful of files. The main functionality rests on a simple JavaScript bookmarklet. Once installed, it’s just a simple click to save a URL for later viewing. I plan to add a few more features, such as an archive and favorites, later.</p>
+<p>I’ve been running it on PHP 5.2.13 and MySQL 5.0.91 but I doubt you will have problems on any other LAMP flavor.</p>
+<p>Download the latest version of <a href="https://github.com/notnek/view-later/archive/master.zip">View Later</a> [1.0.1] and check out <code>-docs/README.txt</code> for installation help.</p>
+]]></content:encoded>
+        </item>
+    </channel>
+</rss>
