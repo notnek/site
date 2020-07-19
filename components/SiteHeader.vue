@@ -43,9 +43,6 @@ export default {
     useH1() {
       return ['/', '/about'].includes(this.$route.path);
     },
-    useH1() {
-      return ['/', '/about'].includes(this.$route.path);
-    },
   },
 };
 </script>
