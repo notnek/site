@@ -27,6 +27,7 @@ export default {
   async asyncData({ $content }) {
     const { skills, projects, externalLinks } = await $content('stats').fetch();
     const articles = await $content('articles')
+      // .where({ publishedAt: { $gt: '01/01/2019' } })
       .only(['title', 'publishedAt', 'path'])
       .sortBy('date', 'asc')
       .limit(5)

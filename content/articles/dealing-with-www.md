@@ -1,5 +1,6 @@
 ---
 title: Dealing with WWW
+publishedAt: 01/07/2011
 ---
 When you're finishing up a new site or revisiting an old one, it's a smart choice to make sure your URL is loaded the same way, with or without the www record.
 

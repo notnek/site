@@ -1,6 +1,6 @@
 ---
 title: View Later
-# 201101220000
+publishedAt: 01/22/2011
 ---
 Lately, I’ve needed an easy way to save a website that I may need/want to view later. Sure, I could use my built in bookmarks, or utitlize services like [Instapaper](http://instapaper.com/) or [Delicious](http://www.delicious.com/), or even the tried and true email to myself. However, there are multiple reasons why I really don’t want any of that. I don’t want to clutter up my browser, nor do I need all the functionality of those services and let them house my data, and I especially get tired of sending myself emails with just one URL in it.
 
