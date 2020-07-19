@@ -5,7 +5,7 @@
         class="text-gray-900 dark-mode:text-gray-100 hover:no-underline"
         to="/"
       >
-        <span class="font-bold">Kenton Glass</span>, full-stack developer
+        Kenton Glass<span class="font-normal">, full-stack developer</span>
       </nuxt-link>
     </component>
 
@@ -13,7 +13,7 @@
       <ul class="flex space-x-4">
         <li>
           <nuxt-link to="/" exact-active-class="underline">
-            About
+            Home
           </nuxt-link>
         </li>
         <li>
@@ -38,7 +38,10 @@ export default {
         return null;
       }
 
-      return 'text-lg leading-tight mb-2 md:text-xl';
+      return 'text-lg leading-tight mb-2 md:text-xl font-bold';
+    },
+    useH1() {
+      return ['/', '/about'].includes(this.$route.path);
     },
     useH1() {
       return ['/', '/about'].includes(this.$route.path);

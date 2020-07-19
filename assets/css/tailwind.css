@@ -25,14 +25,14 @@ a {
 }
 
 h1 {
-  @apply text-2xl leading-tight mb-4;
+  @apply text-3xl leading-tight mb-4 font-bold;
 
   @screen md {
     @apply text-4xl;
   }
 
   span {
-    @apply font-bold;
+    @apply font-normal;
   }
 }
 
@@ -89,10 +89,14 @@ h3 {
 
   .nuxt-content-highlight {
     @apply bg-gray-200 font-mono whitespace-pre break-normal leading-normal rounded p-4 my-10;
+
+    @screen dark-mode {
+      @apply bg-gray-800;
+    }
   }
 
   .filename {
-    @apply block text-gray-600 italic mb-4;
+    @apply block text-gray-500 italic mb-4;
 
     &::before {
       content: "//";
@@ -107,10 +111,6 @@ h3 {
     word-wrap: normal;
     tab-size: 2;
     hyphens: none;
-
-    @screen dark-mode {
-      @apply bg-gray-700;
-    }
   }
 
   pre[class*="language-"]::-moz-selection,
@@ -121,29 +121,19 @@ h3 {
   pre[class*="language-"] ::selection,
   code[class*="language-"]::selection,
   code[class*="language-"] ::selection {
-    @apply bg-gray-100;
     text-shadow: none;
-
-    @screen dark-mode {
-      @apply bg-gray-900;
-    }
   }
 
   pre[class*="language-"] {
     @apply overflow-auto;
   }
 
-  :not(pre) > code[class*="language-"],
-  pre[class*="language-"] {
-    @apply bg-gray-200;
+  :not(pre) > code {
+    @apply rounded whitespace-normal bg-gray-200 font-mono break-normal p-1;
 
     @screen dark-mode {
-      @apply bg-gray-700;
+      @apply bg-gray-800;
     }
-  }
-
-  :not(pre) > code {
-    @apply rounded whitespace-normal bg-gray-200 font-mono break-normal leading-normal px-1;
   }
 
   .token.comment,
@@ -155,6 +145,10 @@ h3 {
 
   .token.punctuation {
     @apply text-gray-700;
+
+    @screen dark-mode {
+      @apply text-gray-300;
+    }
   }
 
   .token.property,
@@ -165,6 +159,10 @@ h3 {
   .token.symbol,
   .token.deleted {
     @apply text-pink-500;
+
+    @screen dark-mode {
+      @apply text-pink-300;
+    }
   }
 
   .token.selector,
@@ -174,6 +172,10 @@ h3 {
   .token.builtin,
   .token.inserted {
     @apply text-green-500;
+
+    @screen dark-mode {
+      @apply text-green-300;
+    }
   }
 
   .token.operator,
@@ -193,11 +195,19 @@ h3 {
   .token.attr-value + .token.attr-name,
   .token.keyword {
     @apply text-blue-500;
+
+    @screen dark-mode {
+      @apply text-blue-300;
+    }
   }
 
   .token.function,
   .token.class-name {
     @apply text-pink-500;
+
+    @screen dark-mode {
+      @apply text-pink-300;
+    }
   }
 
   .token.regex,

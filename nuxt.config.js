@@ -1,25 +1,17 @@
+import marked from 'marked';
+
+const color = '#2B6CB0';
 const siteTitle = 'Kenton Glass';
 const siteDescription =
   'Kenton Glass is a full-stack developer in Louisville, KY';
 
 export default {
-  /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
   mode: 'universal',
-  /*
-   ** Nuxt target
-   ** See https://nuxtjs.org/api/configuration-target
-   */
   target: 'static',
+  components: true,
   loading: {
-    color: '#2B6CB0',
+    color,
   },
-  /*
-   ** Headers of the page
-   ** See https://nuxtjs.org/api/configuration-head
-   */
   head: {
     title: siteTitle,
     meta: [
@@ -49,7 +41,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-      { rel: 'mask-icon', href: '/pinned-tab.svg', color: '#2B6CB0' },
+      { rel: 'mask-icon', href: '/pinned-tab.svg', color },
       {
         rel: 'alternate',
         href: 'https://kenton.glass/feed/rss.xml',
@@ -62,45 +54,13 @@ export default {
       },
     ],
   },
-  /*
-   ** Global CSS
-   */
-  css: [],
-  /*
-   ** Plugins to load before mounting the App
-   ** https://nuxtjs.org/guide/plugins
-   */
-  plugins: [],
-  /*
-   ** Auto import components
-   ** See https://nuxtjs.org/api/configuration-components
-   */
-  components: true,
-  /*
-   ** Nuxt.js dev-modules
-   */
+  plugins: ['@/plugins/filters.js'],
   buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
   ],
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [
-    '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt/content
-    '@nuxt/content',
-    // Doc: https://github.com/nuxt-community/feed-module,
-    '@nuxtjs/feed',
-  ],
-  /*
-   ** Content module configuration
-   ** See https://content.nuxtjs.org/configuration
-   */
+  modules: ['@nuxtjs/pwa', '@nuxt/content', '@nuxtjs/feed'],
   content: {
     markdown: {
       prism: {
@@ -108,53 +68,50 @@ export default {
       },
     },
   },
-  /*
-   ** Feed module configuration
-   ** See https://github.com/nuxt-community/feed-module#configuration
-   */
   feed() {
     const { $content } = require('@nuxt/content');
-    const baseUrlArticles = 'https://kenton.glass/articles';
-    const baseLinkFeedArticles = '/feed';
-    const feedFormats = {
-      rss: { type: 'rss2', file: 'rss.xml' },
-      json: { type: 'json1', file: 'feed.json' },
-    };
-    const createFeedArticles = async function (feed) {
+    const createFeedArticles = async (feed) => {
       feed.options = {
         title: 'Articles by Kenton Glass',
         description:
           'Ramblings about life, sports and programming from Kenton Glass.',
-        link: baseUrlArticles,
+        link: 'https://kenton.glass',
       };
 
-      const articles = await $content('articles').fetch();
+      const articles = await $content('articles', { text: true }).fetch();
 
       articles.forEach((article) => {
-        const url = `${baseUrlArticles}/${article.slug}`;
+        const url = `${feed.options.link}/${article.path}`;
+        let summary = article.text;
+
+        if (summary.length > 180) {
+          summary = summary.substring(0, 180);
+          summary = `${summary.substring(0, summary.lastIndexOf(' '))}…`;
+        }
 
         feed.addItem({
           title: article.title,
           id: url,
           link: url,
-          date: article.published,
-          description: article.summary,
-          content: article.summary,
-          author: article.authors,
+          date: new Date(article.publishedAt),
+          description: marked(summary),
+          content: marked(article.text),
+          author: 'Kenton Glass',
         });
       });
     };
 
+    const feedFormats = {
+      rss: { type: 'rss2', file: 'rss.xml' },
+      json: { type: 'json1', file: 'feed.json' },
+    };
+
     return Object.values(feedFormats).map(({ file, type }) => ({
-      path: `${baseLinkFeedArticles}/${file}`,
+      path: `/feed/${file}`,
       type,
       create: createFeedArticles,
     }));
   },
-  /*
-   ** Build configuration
-   ** See https://nuxtjs.org/api/configuration-build/
-   */
   build: {
     postcss: {
       plugins: {

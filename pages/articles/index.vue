@@ -1,39 +1,22 @@
 <template>
   <main>
     <h1>Articles</h1>
-    <ul v-if="anyArticles">
-      <li v-for="article in articles" :key="article.path">
-        <nuxt-link :to="article.path">{{ article.title }}</nuxt-link>
-        <span class="text-base text-gray-600">{{ article.createdAt }}</span>
-      </li>
-    </ul>
-    <p v-else>No articles yet.</p>
+    <article-list :articles="articles" />
   </main>
 </template>
 
 <script>
-import format from 'date-fns/format';
-
 export default {
   async asyncData({ $content }) {
     const articles = await $content('articles')
-      .only(['title', 'createdAt', 'path'])
-      .sortBy('createdAt', 'asc')
+      .only(['title', 'publishedAt', 'path'])
+      .sortBy('date', 'asc')
+      .limit(5)
       .fetch();
 
     return {
-      articles: articles.map((a) => {
-        return {
-          ...a,
-          createdAt: format(new Date(a.createdAt), 'MMMM do, y'),
-        };
-      }),
+      articles,
     };
-  },
-  computed: {
-    anyArticles() {
-      return this.articles.length > 0;
-    },
   },
   head() {
     const title = 'Articles by Kenton Glass';

@@ -1,5 +1,7 @@
 # kenton.glass
 
+My personal site powered by [Nuxt.js](https://nuxtjs.org).
+
 ## Build Setup
 
 ```bash
