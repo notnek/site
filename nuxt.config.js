@@ -90,7 +90,7 @@ export default {
         .fetch();
 
       articles.forEach((article) => {
-        const url = `${feed.options.link}/${article.path}`;
+        const url = `${feed.options.link}${article.path}`;
         let summary = article.text;
 
         if (summary.length > 180) {
