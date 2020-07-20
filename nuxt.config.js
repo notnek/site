@@ -88,7 +88,9 @@ export default {
         link: 'https://kenton.glass',
       };
 
-      const articles = await $content('articles', { text: true }).fetch();
+      const articles = await $content('articles', { text: true })
+        .sortBy('publishedAt', 'desc')
+        .fetch();
 
       articles.forEach((article) => {
         const url = `${feed.options.link}/${article.path}`;
