@@ -10,6 +10,9 @@ module.exports = {
       cursor: {
         help: 'help',
       },
+      inset: {
+        '6': '1.5rem',
+      },
       screens: {
         'dark-mode': {
           raw: '(prefers-color-scheme: dark)',
@@ -20,8 +23,12 @@ module.exports = {
       },
     },
   },
-  variants: {},
-  plugins: [],
+  variants: {
+    borderRadius: ['responsive', 'after'],
+    height: ['responsive', 'after'],
+    width: ['responsive', 'after'],
+  },
+  plugins: [require('tailwindcss-pseudo')()],
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
     enabled: process.env.NODE_ENV === 'production',
