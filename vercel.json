@@ -1,8 +1,9 @@
 {
-  "routes": [
+  "redirects": [
     {
-      "src": "/uses",
-      "dest": "/articles/my-current-setup-2020-edition"
+      "source": "/uses",
+      "destination": "/articles/my-current-setup-2020-edition",
+      "statusCode": 302
     }
   ]
 }
