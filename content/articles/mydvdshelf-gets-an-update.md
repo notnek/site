@@ -1,6 +1,6 @@
 ---
 title: MyDVDShelf Gets an Update
-publishedAt: 2011-04-05
+publishedAt: 04/05/2011
 ---
 I created [MyDVDShelf.com](http://mydvdshelf.com) for the sole purpose of keeping track of all of my DVDs. Three years later, I’m still spending a fair amount of time on it. Last night, I wrapped up the most substantial update since I relaunched the service nearly a year ago. I’m happy to finally finish some neat features that were on my mind before the wild months of moving and starting a new job. Here are some insights on the update
 
