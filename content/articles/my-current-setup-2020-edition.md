@@ -51,6 +51,4 @@ Inspired by [Wes Bos](https://wesbos.com/uses) and [Freek Van der Herten](https:
 * Dark Sky for weather
 * FreeTaxUSA for filing taxes
 * Overcast for podcasts
-* theScore for all things sports
-* [TV Forecast](https://www.tvforecastapp.com) for tracking TV shows
 * YNAB for budgeting
