@@ -36,7 +36,7 @@ export default {
     };
   },
   computed: {
-    hasBeenEdited() {
+    hasBeenUpdated() {
       return (
         this.article.updatedAt &&
         this.article.createdAt !== this.article.updatedAt
