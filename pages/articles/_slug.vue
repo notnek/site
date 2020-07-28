@@ -8,9 +8,9 @@
         {{ article.title }}
       </nuxt-link>
       <div class="text-base font-normal text-gray-600 dark-mode:text-gray-400">
-        {{ article.publishedAt | formatFullDate }}
-        <span v-if="hasBeenEdited">
-          / Last updated on {{ article.editedAt | formatFullDate }}
+        {{ article.createdAt | formatFullDate }}
+        <span v-if="hasBeenUpdated">
+          / Last updated on {{ article.updatedAt | formatFullDate }}
         </span>
       </div>
     </h1>
@@ -20,7 +20,7 @@
     <footer class="flex justify-between mt-12 text-base">
       <nuxt-link to="/articles" class="block">&larr; All Articles</nuxt-link>
       <div class="text-gray-600">
-        Kenton Glass &copy; {{ article.publishedAt | formatYear }}
+        Kenton Glass &copy; {{ article.createdAt | formatYear }}
       </div>
     </footer>
   </main>
@@ -37,10 +37,9 @@ export default {
   },
   computed: {
     hasBeenEdited() {
-      // TODO: switch back to createdAt/updatedAt once you can customize them in @nuxtjs/content
       return (
-        this.article.editedAt &&
-        this.article.publishedAt !== this.article.editedAt
+        this.article.updatedAt &&
+        this.article.createdAt !== this.article.updatedAt
       );
     },
   },

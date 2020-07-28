@@ -9,8 +9,8 @@
 export default {
   async asyncData({ $content }) {
     const articles = await $content('articles')
-      .only(['title', 'publishedAt', 'path'])
-      .sortBy('publishedAt', 'desc')
+      .only(['title', 'createdAt', 'path'])
+      .sortBy('createdAt', 'desc')
       .fetch();
 
     return {

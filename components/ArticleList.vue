@@ -3,7 +3,7 @@
     <li v-for="article in articles" :key="article.path">
       <nuxt-link :to="article.path">{{ article.title }}</nuxt-link>
       <span class="text-base text-gray-600 dark-mode:text-gray-400">
-        {{ article.publishedAt | formatFullDate }}
+        {{ article.createdAt | formatFullDate }}
       </span>
     </li>
   </ul>

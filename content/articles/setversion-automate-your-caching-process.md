@@ -1,6 +1,6 @@
 ---
 title: setVersion() – Automate Your Caching Process
-publishedAt: 04/24/2011
+createdAt: 04/24/2011
 ---
 Caching your assets is a great and easy way to speed up your site’s load times. However, it can be time consuming to rename files and messy to keep several versions of files on your server. A lot of sites have used query strings, `styles.css?v=1`, to accomplish this cache. I believe it’s better to use a full, versioned filename like styles.1.css, so that the user’s browsers pulls a distinct file. It’s a fairly simple process and I’ll show you how to automate the numbering.
 

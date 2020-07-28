@@ -27,8 +27,8 @@ export default {
   async asyncData({ $content }) {
     const { skills, projects, externalLinks } = await $content('stats').fetch();
     const articles = await $content('articles')
-      .only(['title', 'publishedAt', 'path'])
-      .sortBy('publishedAt', 'desc')
+      .only(['title', 'createdAt', 'path'])
+      .sortBy('createdAt', 'desc')
       .limit(5)
       .fetch();
 

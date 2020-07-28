@@ -1,6 +1,6 @@
 ---
 title: Updating a Menu Based on Page Location
-publishedAt: 07/27/2011
+createdAt: 07/27/2011
 ---
 There are plenty of sites that have sectioned pages which use an anchored link menu system to jump to each section. If you look back at [my smooth anchor post](/articles/smooth-anchors), you can easily adapt that to make the jump behave a little bit nicer. But how about updating the menu so the user is reminded what section they’re on as they scroll down the page? It’s just a few lines of JavaScript+jQuery and you’ll be updating your menu on-the-fly. Let’s get started.
 

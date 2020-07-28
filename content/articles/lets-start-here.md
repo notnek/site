@@ -1,6 +1,6 @@
 ---
 title: Let's Start Here
-publishedAt: 10/07/2012
+createdAt: 10/07/2012
 ---
 I’m not sure where to start so I’ll start here: _a new post for a refreshed site for a renewed spirit._
 

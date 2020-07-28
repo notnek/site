@@ -68,13 +68,13 @@ export default {
       },
     },
   },
-  hooks: {
-    'content:file:beforeInsert': (document) => {
-      if (document.extension === '.md') {
-        document.publishedAt = new Date(document.publishedAt);
-      }
-    },
-  },
+  // hooks: {
+  //   'content:file:beforeInsert': (document) => {
+  //     if (document.extension === '.md') {
+  //       document.publishedAt = new Date(document.publishedAt);
+  //     }
+  //   },
+  // },
   feed() {
     const { $content } = require('@nuxt/content');
     const createFeedArticles = async (feed) => {
@@ -86,7 +86,7 @@ export default {
       };
 
       const articles = await $content('articles', { text: true })
-        .sortBy('publishedAt', 'desc')
+        .sortBy('createdAt', 'desc')
         .fetch();
 
       articles.forEach((article) => {
@@ -102,7 +102,7 @@ export default {
           title: article.title,
           id: url,
           link: url,
-          date: new Date(article.publishedAt),
+          date: new Date(article.createdAt),
           description: marked(summary),
           content: marked(article.text),
           author: 'Kenton Glass',

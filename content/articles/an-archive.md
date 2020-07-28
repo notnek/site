@@ -1,6 +1,6 @@
 ---
 title: An Archive
-publishedAt: 04/11/2011
+createdAt: 04/11/2011
 ---
 It’s always nice to look back. A few weeks ago, I stopped and took the time to remind myself of some old websites I’ve done that have helped me get to where I am today. Then I thought I might as well share some old things. Here’s a list of projects that didn’t make it or sites that have been replaced, ordered by their last edit.
 

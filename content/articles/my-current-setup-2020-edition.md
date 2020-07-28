@@ -1,6 +1,6 @@
 ---
 title: My current setup (2020 edition)
-publishedAt: 07/21/2020
+createdAt: 07/21/2020
 ---
 Inspired by [Wes Bos](https://wesbos.com/uses) and [Freek Van der Herten](https://freek.dev/uses), as well as seeing an [old post](https://kenton.glass/articles/tools-of-the-trade) when I brought the blog back, I wanted to create a page that will list the current hardware, apps and settings I’m using.
 

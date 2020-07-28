@@ -1,7 +1,7 @@
 ---
 title: Adding dark mode to Tailwind CSS
 description: Follow this simple guide to add dark mode to your Tailwind CSS configuration.
-publishedAt: 07/15/2020
+createdAt: 07/15/2020
 ---
 [Tailwind CSS](https://tailwindcss.com) is a great new utility-first framework that is quickly growing in popularity. I’ve become a huge fan of it since I can focus on writing CSS without switching contexts or worrying about [naming classes](https://www.martinfowler.com/bliki/TwoHardThings.html). It comes with a ton of functionality out-of-the-box including responsive  support via modifiers like `md` and `lg`. As dark- and light-modes are becoming more popular, there’s a push for supporting both on your site. This is easy to accomplish with the `prefers-color-scheme: dark` media query. This is very easy to add to Tailwind CSS and be able to utilize like their other responsive modifiers. Here’s how:
 

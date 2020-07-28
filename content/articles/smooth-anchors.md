@@ -1,6 +1,6 @@
 ---
 title: Smooth Anchors
-publishedAt: 02/23/2011
+createdAt: 02/23/2011
 ---
 Long web pages usually have an anchor that takes you back to the top of the page. In most cases, the browser will skip right to the top when a user clicks that link. But using [jQuery](http://jquery.com/), you can easily make your “Top of Page” anchors more pleasant.
 
