@@ -9,9 +9,6 @@
       </nuxt-link>
       <div class="text-base font-normal text-gray-600 dark-mode:text-gray-400">
         {{ article.createdAt | formatFullDate }}
-        <span v-if="hasBeenUpdated">
-          / Last updated on {{ article.updatedAt | formatFullDate }}
-        </span>
       </div>
     </h1>
 
@@ -34,14 +31,6 @@ export default {
     return {
       article,
     };
-  },
-  computed: {
-    hasBeenUpdated() {
-      return (
-        this.article.updatedAt &&
-        this.article.createdAt !== this.article.updatedAt
-      );
-    },
   },
   head() {
     const title = `${this.article.title} by Kenton Glass`;
