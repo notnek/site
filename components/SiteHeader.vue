@@ -9,6 +9,10 @@
         class="rounded-md"
         :class="imageClasses"
         src="~/assets/images/kenton-glass.jpg"
+        srcset="
+          ~/assets/images/kenton-glass.jpg    1x,
+          ~/assets/images/kenton-glass@2x.jpg 2x
+        "
       />
     </div>
     <div>
