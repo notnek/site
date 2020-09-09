@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "/uses",
-      "destination": "/articles/my-current-setup-2020-edition",
-      "statusCode": 302
-    }
-  ]
-}
