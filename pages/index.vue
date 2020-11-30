@@ -5,20 +5,22 @@
       <lazy-article-list :articles="articles" />
     </lazy-hydrate>
 
-    <h2 class="mt-6">Experience</h2>
-    <p>{{ skills }}</p>
-
     <h2 class="mt-6">Featured Projects</h2>
-    <ul>
+    <ul class="space-y-3">
       <li v-for="project in projects" :key="project.url">
-        <a :href="project.url">{{ project.name }}</a>
+        <a
+          :href="project.url"
+          rel="noopener"
+          target="_blank"
+          v-text="project.name"
+        />
       </li>
     </ul>
 
     <h2 class="mt-6">Elsewhere</h2>
-    <ul>
+    <ul class="space-y-3">
       <li v-for="link in externalLinks" :key="link.url">
-        <a :href="link.url">{{ link.name }}</a>
+        <a :href="link.url" rel="noopener" target="_blank" v-text="link.name" />
       </li>
     </ul>
   </main>

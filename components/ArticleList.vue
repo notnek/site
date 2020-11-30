@@ -1,5 +1,5 @@
 <template>
-  <ul v-if="hasAnyArticles">
+  <ul v-if="hasAnyArticles" class="space-y-3">
     <li v-for="article in articles" :key="article.path">
       <nuxt-link :to="article.path">{{ article.title }}</nuxt-link>
       <span class="text-base text-gray-600 dark-mode:text-gray-400">
