@@ -1,21 +1,20 @@
 <template>
   <main>
     <h1 class="flex flex-col-reverse">
-      <nuxt-link
+      <NuxtLink
         class="font-bold text-gray-900 dark-mode:text-gray-100 hover:no-underline"
         :to="article.path"
-      >
-        {{ article.title }}
-      </nuxt-link>
+        v-text="article.title"
+      />
       <div class="text-base font-normal text-gray-600 dark-mode:text-gray-400">
         {{ article.createdAt | formatFullDate }}
       </div>
     </h1>
 
-    <nuxt-content :document="article" />
+    <NuxtContent :document="article" />
 
     <footer class="flex justify-between mt-12 text-base">
-      <nuxt-link to="/articles" class="block">&larr; All Articles</nuxt-link>
+      <NuxtLink to="/articles" class="block">&larr; All Articles</NuxtLink>
       <div class="text-gray-600">
         Kenton Glass &copy; {{ article.createdAt | formatYear }}
       </div>

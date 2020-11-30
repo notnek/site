@@ -1,7 +1,7 @@
 <template>
   <main>
     <h2>Recent Articles</h2>
-    <lazy-article-list class="mt-2" :articles="articles" />
+    <LazyArticleList class="mt-2" :articles="articles" />
 
     <h2 class="mt-8">Featured Projects</h2>
     <ul class="mt-2 space-y-3">

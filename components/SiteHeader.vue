@@ -1,6 +1,6 @@
 <template>
   <header
-    class="mb-16 md:flex items-center space-y-2 md:space-y-0"
+    class="items-center mb-16 space-y-2 md:flex md:space-y-0"
     :class="containerClasses"
   >
     <div>
@@ -17,23 +17,23 @@
     </div>
     <div>
       <component :is="component" :class="nameClasses">
-        <nuxt-link
+        <NuxtLink
           class="text-gray-900 dark-mode:text-gray-100 hover:no-underline"
           to="/"
         >
           Kenton Glass<span class="font-normal">, full-stack developer</span>
-        </nuxt-link>
+        </NuxtLink>
       </component>
 
       <nav>
         <ul class="flex space-x-4">
           <li>
-            <nuxt-link to="/" exact-active-class="underline">Home</nuxt-link>
+            <NuxtLink to="/" exact-active-class="underline">Home</NuxtLink>
           </li>
           <li>
-            <nuxt-link to="/articles" active-class="underline">
+            <NuxtLink to="/articles" active-class="underline">
               Articles
-            </nuxt-link>
+            </NuxtLink>
           </li>
           <li><a href="https://twitter.com/notnek">Twitter</a></li>
         </ul>
