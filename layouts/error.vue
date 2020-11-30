@@ -1,13 +1,20 @@
 <template>
-  <main>
-    <h1 v-if="is404">404<span>, page not found</span></h1>
-    <h1 v-else>Sorry<span>, an error occurred</span></h1>
-    <nuxt-link to="/">Go to the homepage.</nuxt-link>
-  </main>
+  <lazy-hydrate when-idle>
+    <main>
+      <h1 v-if="is404">404<span>, page not found</span></h1>
+      <h1 v-else>Sorry<span>, an error occurred</span></h1>
+      <nuxt-link to="/">Go to the homepage.</nuxt-link>
+    </main>
+  </lazy-hydrate>
 </template>
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration';
+
 export default {
+  components: {
+    LazyHydrate,
+  },
   props: {
     error: {
       type: Object,

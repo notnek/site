@@ -1,12 +1,19 @@
 <template>
-  <div class="max-w-2xl mx-auto">
-    <site-header />
-    <nuxt />
-  </div>
+  <lazy-hydrate when-idle>
+    <div class="max-w-2xl mx-auto">
+      <site-header />
+      <nuxt />
+    </div>
+  </lazy-hydrate>
 </template>
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration';
+
 export default {
+  components: {
+    LazyHydrate,
+  },
   head: {
     bodyAttrs: {
       class:
