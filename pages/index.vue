@@ -1,7 +1,9 @@
 <template>
   <main>
     <h2>Recent Articles</h2>
-    <article-list :articles="articles" />
+    <lazy-hydrate when-idle>
+      <lazy-article-list :articles="articles" />
+    </lazy-hydrate>
 
     <h2 class="mt-6">Experience</h2>
     <p>{{ skills }}</p>

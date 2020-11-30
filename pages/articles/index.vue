@@ -1,7 +1,7 @@
 <template>
   <main>
     <h1>Articles</h1>
-    <article-list :articles="articles" />
+    <lazy-article-list :articles="articles" />
   </main>
 </template>
 
