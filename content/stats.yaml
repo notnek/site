@@ -10,6 +10,8 @@ skills:
   - PHP
   - Laravel
 projects:
+  - name: 'Baker''s Bourbon'
+    url: 'https://www.bakersbourbon.com'
   -
     name: 'Bubba''s 33'
     url: 'https://www.bubbas33.com'
@@ -22,9 +24,6 @@ projects:
   -
     name: 'Maker''s Mark'
     url: 'https://www.makersmark.com'
-  -
-    name: 'Inked Brands'
-    url: 'https://www.inkedbrands.com'
   -
     name: 'Studio Calico'
     url: 'https://www.studiocalico.com'
