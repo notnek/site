@@ -59,7 +59,6 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
-    'nuxt-ackee',
   ],
   modules: ['@nuxt/content', '@nuxtjs/feed'],
   content: {
@@ -68,10 +67,6 @@ export default {
         theme: false,
       },
     },
-  },
-  ackee: {
-    server: 'https://stats.ragekage.com',
-    domainId: '709d80b1-3502-4ac7-a223-b8ae32e8e84d',
   },
   feed() {
     const { $content } = require('@nuxt/content');
