@@ -8,11 +8,13 @@
         alt="Illustration of Kenton Glass"
         class="rounded-md"
         :class="imageClasses"
+        height="64px"
         src="~/assets/images/kenton-glass.jpg"
         srcset="
           ~/assets/images/kenton-glass.jpg    1x,
           ~/assets/images/kenton-glass@2x.jpg 2x
         "
+        width="64px"
       />
     </div>
     <div>
@@ -52,7 +54,7 @@ export default {
       return this.useH1 ? 'md:space-x-5' : 'md:space-x-3';
     },
     imageClasses() {
-      return this.useH1 ? 'w-20' : 'w-16';
+      return this.useH1 ? 'w-20 h-20' : 'w-16 h-16';
     },
     nameClasses() {
       if (this.useH1) {
