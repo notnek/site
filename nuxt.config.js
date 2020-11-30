@@ -13,6 +13,9 @@ export default {
     fallback: true,
   },
   head: {
+    htmlAttrs: {
+      lang: 'en',
+    },
     title: siteTitle,
     meta: [
       { charset: 'utf-8' },
