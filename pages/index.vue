@@ -1,12 +1,10 @@
 <template>
   <main>
     <h2>Recent Articles</h2>
-    <lazy-hydrate when-idle>
-      <lazy-article-list :articles="articles" />
-    </lazy-hydrate>
+    <lazy-article-list class="mt-2" :articles="articles" />
 
-    <h2 class="mt-6">Featured Projects</h2>
-    <ul class="space-y-3">
+    <h2 class="mt-8">Featured Projects</h2>
+    <ul class="mt-2 space-y-3">
       <li v-for="project in projects" :key="project.url">
         <a
           :href="project.url"
@@ -17,8 +15,8 @@
       </li>
     </ul>
 
-    <h2 class="mt-6">Elsewhere</h2>
-    <ul class="space-y-3">
+    <h2 class="mt-8">Elsewhere</h2>
+    <ul class="mt-2 space-y-3">
       <li v-for="link in externalLinks" :key="link.url">
         <a :href="link.url" rel="noopener" target="_blank" v-text="link.name" />
       </li>
