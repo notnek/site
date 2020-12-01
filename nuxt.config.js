@@ -5,7 +5,6 @@ const siteDescription =
   'Kenton Glass is a full-stack developer in Louisville, KY';
 
 export default {
-  mode: 'universal',
   target: 'static',
   features: {
     store: false,
