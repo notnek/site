@@ -1,6 +1,6 @@
 ---
 title: Emma
-createdAt: 11/10/2012
+createdAt: 2012/11/10
 ---
 Today I made a decision to pivot my life in a new direction. I’m moving to Nashville, Tennessee and joining the [Emma](http://myemma.com/) family as a Front End Developer. I couldn’t be more excited.
 

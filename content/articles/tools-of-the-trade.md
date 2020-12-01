@@ -1,6 +1,6 @@
 ---
 title: Tools of the Trade
-createdAt: 10/24/2012
+createdAt: 2012/10/24
 ---
 I’ve recently reevaluated the tools and services I use to accomplish the different tasks I’m faced with on a daily basis. I thought it might be helpful to some if I listed everything I use, in both apps, configurations and web services. Let’s get started.
 

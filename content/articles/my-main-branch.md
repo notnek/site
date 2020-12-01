@@ -1,7 +1,7 @@
 ---
 title: My main branch
 description: I'm replacing master with main in my git repos.
-createdAt: 07/28/2020
+createdAt: 2020/07/28
 ---
 Over the last few months, the web community has been vying to move away from "master/slave" terminology. I (as well as many others) have started addressing this in my own work been replacing `master` branches with `main`, including [this site](https://github.com/notnek/site). You can also do this easily with the following two commands:
 

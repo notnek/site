@@ -1,6 +1,6 @@
 ---
 title: Clean URLS
-createdAt: 01/18/2011
+createdAt: 2011/01/18
 ---
 I’d like to continue providing some simple tips on utilizing an .htaccess file to create some better URLs. Let’s be honest… no one wants to remember `domain.com/display.php?room=kitchen&brand=cuisinart&name=ice-cream-maker`. The variables are nearly impossible to retain when you’re quickly browsing a site. With that said, you should take a few minutes and setup a RewriteRule to clean up that nasty URL.
 

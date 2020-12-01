@@ -1,6 +1,6 @@
 ---
 title: Rolling My Own Ad Platform
-createdAt: 02/29/2012
+createdAt: 2012/02/29
 ---
 Over the last few months, I’ve been working on a complete overhaul of our different websites in [my division](http://louisville.edu/delphi) at [UofL](http://louisville.edu/). Part of the design I landed on in the fall, incorporated an internal ad spot, where we could either advertise programs and offerings, or cross-sell them. I knew that I wanted to make this platform robust, but easy to use since people managing ads aren’t web developers. I landed on a solution that uses PHP/MySQL on an different server and JavaScript to serve ad.
 
