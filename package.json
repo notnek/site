@@ -40,7 +40,7 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "husky": "^4.3.6",
+    "husky": "^4.3.7",
     "jest": "^26.0.1",
     "lint-staged": "^10.2.11",
     "marked": "^1.2.5",
