@@ -15,31 +15,31 @@ It's a very simple service. Through URL segments, you can define the dimensions 
 *Please note the rounded corners in the examples below are from my own site's styling and not the placeholder image itself.*
 
 ### Width only
-[https://yaps.xyz/300](https://yaps.xyz/300)
+https://yaps.xyz/300
 
 ![](https://yaps.xyz/300)
 
 ### Width and height
 
-[https://yaps.xyz/300x500](https://yaps.xyz/300x500)
+https://yaps.xyz/300x500
 
 ![](https://yaps.xyz/300x500)
 
 ### Width and height via aspect ratio
 *This is by far my favorite feature.*
 
-[https://yaps.xyz/300x16:9](https://yaps.xyz/300x16:9)
+https://yaps.xyz/300x16:9
 
 ![](https://yaps.xyz/300x1:1)
 
 ### Colors
 Colors are formatted as background-foreground. Only background is required.
 
-[https://yaps.xyz/300x500/000](https://yaps.xyz/300x500/000)
+https://yaps.xyz/300x500/000
 
 ![](https://yaps.xyz/300x500/000)
 
-[https://yaps.xyz/300/000-fff](https://yaps.xyz/300/000-fff)
+https://yaps.xyz/300/000-fff
 
 ![](https://yaps.xyz/300/000-fff)
 
