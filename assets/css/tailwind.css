@@ -25,7 +25,7 @@ a {
 }
 
 h1 {
-  @apply text-3xl leading-tight mb-4 font-bold;
+  @apply mb-4 text-3xl font-bold leading-tight;
 
   @screen md {
     @apply text-4xl;
@@ -66,7 +66,7 @@ h4 {
   }
 
   .video {
-    @apply w-full relative pb-9/16 rounded;
+    @apply relative w-full rounded pb-9/16;
 
     iframe {
       @apply absolute top-0 left-0 w-full h-full;
@@ -95,8 +95,16 @@ h4 {
     }
   }
 
+  hr {
+    @apply h-px my-10 bg-blue-700 border-0 rounded-full;
+
+    @screen dark-mode {
+      @apply bg-blue-300;
+    }
+  }
+
   .nuxt-content-highlight {
-    @apply bg-gray-200 font-mono whitespace-pre break-normal leading-normal rounded p-4 my-10;
+    @apply p-4 my-10 font-mono leading-normal break-normal whitespace-pre bg-gray-200 rounded;
 
     @screen dark-mode {
       @apply bg-gray-800;
@@ -104,7 +112,7 @@ h4 {
   }
 
   .filename {
-    @apply block text-gray-500 italic mb-4;
+    @apply block mb-4 italic text-gray-500;
 
     &::before {
       content: "//";
@@ -137,7 +145,7 @@ h4 {
   }
 
   :not(pre) > code {
-    @apply rounded whitespace-normal bg-gray-200 font-mono break-normal p-1;
+    @apply p-1 font-mono break-normal whitespace-normal bg-gray-200 rounded;
 
     @screen dark-mode {
       @apply bg-gray-800;

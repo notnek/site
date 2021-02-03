@@ -11,7 +11,7 @@ module.exports = {
         help: 'help',
       },
       inset: {
-        '6': '1.5rem',
+        6: '1.5rem',
       },
       screens: {
         'dark-mode': {
