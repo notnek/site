@@ -30,7 +30,7 @@ https://yaps.xyz/300x500
 
 https://yaps.xyz/300x16:9
 
-![](https://yaps.xyz/300x1:1)
+![](https://yaps.xyz/300x16:9)
 
 ### Colors
 Colors are formatted as background-foreground. Only background is required.
