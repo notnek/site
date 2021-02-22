@@ -58,8 +58,6 @@ export default {
       },
     ],
     link: [
-      { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-      { rel: 'mask-icon', href: '/pinned-tab.svg', color: '#2B6CB0' },
       {
         rel: 'alternate',
         href: 'https://kenton.glass/articles/rss.xml',
@@ -75,10 +73,16 @@ export default {
   plugins: ['@/plugins/filters.js'],
   buildModules: [
     '@nuxtjs/eslint-module',
+    '@nuxtjs/pwa',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
   ],
   modules: ['@nuxt/content', '@nuxtjs/feed'],
+  pwa: {
+    // meta: false,
+    manifest: false,
+    workbox: false,
+  },
   content: {
     markdown: {
       prism: {
