@@ -24,7 +24,7 @@
     "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/pwa": "^3.3.5",
     "date-fns": "^2.17.0",
-    "nuxt": "^2.15.1",
+    "nuxt": "^2.15.2",
     "vue-lazy-hydration": "^2.0.0-beta.4"
   },
   "devDependencies": {
