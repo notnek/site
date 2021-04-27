@@ -10,7 +10,7 @@ git branch -m master main
 git push -u origin main
 ```
 
-This will keep all of your history, but under a `main` branch. Tools like GitHub can automatically make `main` your default branch as well.
+This will keep all of your history, but under a `main` branch. Tools like [GitHub](https://docs.github.com/en/github/administering-a-repository/changing-the-default-branch) can automatically make `main` your default branch as well.
 
 ## Setting main as your initial branch
 On July 27, 2020, version [2.28.0 of Git was released](https://lore.kernel.org/git/xmqq5za8hpir.fsf@gitster.c.googlers.com/) with a new configuration option named `init.defaultBranch` that allows you to set your initial branch instead of it being hardset to `master`. You can set this configuration with the following line:
