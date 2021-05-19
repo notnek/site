@@ -1,9 +1,9 @@
 <template>
   <main>
-    <h2>Recent Articles</h2>
+    <h2>Recent articles</h2>
     <LazyArticleList class="mt-2" :articles="articles" />
 
-    <h2 class="mt-8">Featured Projects</h2>
+    <h2 class="mt-8">Featured projects</h2>
     <ul class="mt-2 space-y-3">
       <li v-for="project in projects" :key="project.url">
         <a
