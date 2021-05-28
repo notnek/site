@@ -4,28 +4,25 @@
     :class="containerClasses"
   >
     <div>
-      <img
+      <NuxtImg
         alt="Illustration of Kenton Glass"
+        src="/images/kenton-glass.jpg"
         class="rounded-md"
         :class="imageClasses"
-        height="64px"
-        src="~/assets/images/kenton-glass.jpg"
-        srcset="
-          ~/assets/images/kenton-glass.jpg    1x,
-          ~/assets/images/kenton-glass@2x.jpg 2x
-        "
-        width="64px"
+        format="webp"
+        width="80"
+        height="80"
       />
     </div>
     <div>
-      <component :is="component" :class="nameClasses">
+      <Component :is="component" :class="nameClasses">
         <NuxtLink
           class="text-gray-900 dark-mode:text-gray-100 hover:no-underline"
           to="/"
         >
           Kenton Glass<span class="font-normal">, full-stack developer</span>
         </NuxtLink>
-      </component>
+      </Component>
 
       <nav>
         <ul class="flex space-x-4">

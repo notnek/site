@@ -73,6 +73,7 @@ export default {
   plugins: ['@/plugins/filters.js'],
   buildModules: [
     '@nuxtjs/eslint-module',
+    '@nuxt/image',
     '@nuxtjs/pwa',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
