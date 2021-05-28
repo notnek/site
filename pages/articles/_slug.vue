@@ -1,7 +1,7 @@
 <template>
   <main>
     <h1 class="flex flex-col-reverse">
-      <NuxtLink
+      <nuxt-link
         class="font-bold text-gray-900 dark-mode:text-gray-100 hover:no-underline"
         :to="article.path"
         v-text="article.title"
@@ -14,7 +14,12 @@
     <NuxtContent :document="article" />
 
     <footer class="flex justify-between mt-12 text-base">
-      <NuxtLink to="/articles" class="block">&larr; All Articles</NuxtLink>
+      <nuxt-link
+        class="block"
+        to="/articles"
+      >
+        &larr; All Articles
+      </nuxt-link>
       <div class="text-gray-600">
         Kenton Glass &copy; {{ article.createdAt | formatYear }}
       </div>
