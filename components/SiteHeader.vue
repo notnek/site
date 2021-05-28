@@ -4,7 +4,7 @@
     :class="containerClasses"
   >
     <div>
-      <NuxtImg
+      <nuxt-img
         alt="Illustration of Kenton Glass"
         src="/images/kenton-glass.jpg"
         class="rounded-md"
@@ -15,24 +15,26 @@
       />
     </div>
     <div>
-      <Component :is="component" :class="nameClasses">
-        <NuxtLink
+      <component :is="component" :class="nameClasses">
+        <nuxt-link
           class="text-gray-900 dark-mode:text-gray-100 hover:no-underline"
           to="/"
         >
           Kenton Glass<span class="font-normal">, full-stack developer</span>
-        </NuxtLink>
-      </Component>
+        </nuxt-link>
+      </component>
 
       <nav>
         <ul class="flex space-x-4">
           <li>
-            <NuxtLink to="/" exact-active-class="underline">Home</NuxtLink>
+            <nuxt-link to="/" exact-active-class="underline">
+              Home
+            </nuxt-link>
           </li>
           <li>
-            <NuxtLink to="/articles" active-class="underline">
+            <nuxt-link to="/articles" active-class="underline">
               Articles
-            </NuxtLink>
+            </nuxt-link>
           </li>
           <li><a href="https://twitter.com/notnek">Twitter</a></li>
         </ul>

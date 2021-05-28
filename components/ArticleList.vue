@@ -1,13 +1,15 @@
 <template>
   <ul v-if="hasAnyArticles" class="space-y-3">
     <li v-for="article in articles" :key="article.path">
-      <NuxtLink :to="article.path" v-text="article.title" />
+      <nuxt-link :to="article.path" v-text="article.title" />
       <span class="text-base text-gray-600 dark-mode:text-gray-400">
         {{ article.createdAt | formatFullDate }}
       </span>
     </li>
   </ul>
-  <p v-else>No articles yet.</p>
+  <p v-else>
+    No articles yet.
+  </p>
 </template>
 
 <script>

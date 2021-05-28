@@ -6,22 +6,6 @@ const siteDescription =
 
 export default {
   target: 'static',
-  features: {
-    store: false,
-    layouts: true,
-    meta: true,
-    middleware: false,
-    transitions: false,
-    deprecations: false,
-    validate: false,
-    asyncData: true,
-    fetch: false,
-    clientOnline: false,
-    clientPrefetch: true,
-    clientUseUrl: true,
-    componentAliases: true,
-    componentClientOnly: true,
-  },
   components: true,
   loading: '~/components/LoadingIndicator.vue',
   generate: {
@@ -75,7 +59,6 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxt/image',
     '@nuxtjs/pwa',
-    '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
   ],
   modules: ['@nuxt/content', '@nuxtjs/feed'],

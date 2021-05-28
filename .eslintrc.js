@@ -9,13 +9,26 @@ module.exports = {
   },
   extends: [
     '@nuxtjs',
-    'prettier',
-    'plugin:prettier/recommended',
     'plugin:nuxt/recommended',
   ],
-  plugins: ['prettier'],
-  // add your custom rules here
+  plugins: [
+  ],
   rules: {
-    semi: [2, 'always'],
+    'comma-dangle': [
+      'error',
+      'always-multiline',
+    ],
+    semi: [
+      'error',
+      'always',
+    ],
+    'space-before-function-paren': [
+      'error',
+      {
+        anonymous: 'always',
+        named: 'never',
+        asyncArrow: 'always',
+      },
+    ],
   },
 };

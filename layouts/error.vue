@@ -1,11 +1,17 @@
 <template>
-  <LazyHydrate when-idle>
+  <lazy-hydrate when-idle>
     <main>
-      <h1 v-if="is404">404<span>, page not found</span></h1>
-      <h1 v-else>Sorry<span>, an error occurred</span></h1>
-      <NuxtLink to="/">Go to the homepage.</NuxtLink>
+      <h1 v-if="is404">
+        404<span>, page not found</span>
+      </h1>
+      <h1 v-else>
+        Sorry<span>, an error occurred</span>
+      </h1>
+      <nuxt-link to="/">
+        Go to the homepage.
+      </nuxt-link>
     </main>
-  </LazyHydrate>
+  </lazy-hydrate>
 </template>
 
 <script>
@@ -19,11 +25,6 @@ export default {
     error: {
       type: Object,
       required: true,
-    },
-  },
-  computed: {
-    is404() {
-      return this.error.statusCode === 404;
     },
   },
   head() {
@@ -57,6 +58,11 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    is404() {
+      return this.error.statusCode === 404;
+    },
   },
 };
 </script>
