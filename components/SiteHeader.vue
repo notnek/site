@@ -6,12 +6,12 @@
     <div>
       <nuxt-img
         alt="Illustration of Kenton Glass"
-        src="/images/kenton-glass.jpg"
+        src="/images/kenton-glass.png"
         class="rounded-md"
         :class="imageClasses"
         format="webp"
-        width="80"
-        height="80"
+        width="160"
+        height="160"
       />
     </div>
     <div>
