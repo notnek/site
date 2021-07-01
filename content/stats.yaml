@@ -10,7 +10,14 @@ skills:
   - PHP
   - Laravel
 projects:
-  - name: 'Baker''s Bourbon'
+  -
+    name: 'Drink KY (App)'
+    url: 'https://app.drink-ky.com'
+  -
+    name: 'Drink KY (Marketing)'
+    url: 'https://www.drink-ky.com'
+  -
+    name: 'Baker''s Bourbon'
     url: 'https://www.bakersbourbon.com'
   -
     name: 'Bubba''s 33'
