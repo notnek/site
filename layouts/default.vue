@@ -1,10 +1,11 @@
 <template>
-  <lazy-hydrate when-idle>
+  <LazyHydrate when-idle>
     <div class="max-w-2xl mx-auto">
-      <site-header />
-      <nuxt />
+      <VueAnnouncer />
+      <SiteHeader />
+      <Nuxt />
     </div>
-  </lazy-hydrate>
+  </LazyHydrate>
 </template>
 
 <script>

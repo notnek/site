@@ -54,7 +54,10 @@ export default {
       },
     ],
   },
-  plugins: ['@/plugins/filters.js'],
+  plugins: [
+    '~/plugins/filters.js',
+    '~/plugins/announcer.client.js',
+  ],
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxt/image',
