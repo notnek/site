@@ -4,12 +4,11 @@
     :class="containerClasses"
   >
     <div>
-      <nuxt-img
-        alt="Illustration of Kenton Glass"
+      <nuxt-picture
+        alt=""
         src="/images/kenton-glass.png"
-        class="rounded-md"
+        class="block"
         :class="imageClasses"
-        format="webp"
         width="160"
         height="160"
       />
@@ -68,3 +67,9 @@ export default {
   },
 };
 </script>
+
+<style lang="postcss" scoped>
+picture >>> img {
+  @apply rounded-md;
+}
+</style>
