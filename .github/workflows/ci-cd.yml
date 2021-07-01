@@ -19,8 +19,6 @@ jobs:
       - uses: borales/actions-yarn@v2.3.0
         with:
           cmd: generate
-
-jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
