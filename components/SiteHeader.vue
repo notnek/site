@@ -4,14 +4,19 @@
     :class="containerClasses"
   >
     <div>
-      <nuxt-picture
-        alt=""
-        src="/images/kenton-glass.png"
-        class="block"
-        :class="imageClasses"
-        width="160"
-        height="160"
-      />
+      <nuxt-link
+        class="text-gray-900 dark:text-gray-100 hover:no-underline"
+        to="/"
+      >
+        <nuxt-picture
+          alt="Go to home page"
+          src="/images/kenton-glass.png"
+          class="block text-sm text-gray-700 dark:text-gray-400"
+          :class="imageClasses"
+          width="160"
+          height="160"
+        />
+      </nuxt-link>
     </div>
     <div>
       <component :is="component" :class="nameClasses">
