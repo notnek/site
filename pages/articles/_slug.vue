@@ -20,8 +20,12 @@
       >
         &larr; All Articles
       </nuxt-link>
-      <div class="text-gray-700 dark:text-gray-400">
+      <nuxt-link
+        class="block text-gray-700 dark:text-gray-400"
+        to="/"
+      >
         Kenton Glass &copy; {{ article.createdAt | formatYear }}
+      </nuxt-link>
       </div>
     </footer>
   </main>
