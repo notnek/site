@@ -20,7 +20,7 @@
       >
         &larr; All Articles
       </nuxt-link>
-      <div class="text-gray-600">
+      <div class="text-gray-400">
         Kenton Glass &copy; {{ article.createdAt | formatYear }}
       </div>
     </footer>
