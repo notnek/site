@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  generate:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,9 +19,6 @@ jobs:
       - uses: borales/actions-yarn@v2.3.0
         with:
           cmd: generate
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v2
       - uses: aws-actions/configure-aws-credentials@v1
         with:
