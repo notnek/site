@@ -6,7 +6,7 @@
         :to="article.path"
         v-text="article.title"
       />
-      <div class="text-base font-normal text-gray-600 dark-mode:text-gray-400">
+      <div class="text-base font-normal text-gray-700 dark-mode:text-gray-400">
         {{ article.createdAt | formatFullDate }}
       </div>
     </h1>
@@ -20,7 +20,7 @@
       >
         &larr; All Articles
       </nuxt-link>
-      <div class="text-gray-400">
+      <div class="text-gray-700 dark-mode:text-gray-400">
         Kenton Glass &copy; {{ article.createdAt | formatYear }}
       </div>
     </footer>
