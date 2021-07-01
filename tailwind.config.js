@@ -14,7 +14,7 @@ module.exports = {
         6: '1.5rem',
       },
       screens: {
-        'dark-mode': {
+        dark: {
           raw: '(prefers-color-scheme: dark)',
         },
       },

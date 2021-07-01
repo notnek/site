@@ -16,7 +16,7 @@
     <div>
       <component :is="component" :class="nameClasses">
         <nuxt-link
-          class="text-gray-900 dark-mode:text-gray-100 hover:no-underline"
+          class="text-gray-900 dark:text-gray-100 hover:no-underline"
           to="/"
         >
           Kenton Glass<span class="font-normal">, full-stack developer</span>
