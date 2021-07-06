@@ -1,13 +1,15 @@
 <template>
-  <LazyHydrate when-idle>
-    <div class="max-w-2xl mx-auto">
-      <ClientOnly>
-        <VueAnnouncer />
-      </ClientOnly>
-      <SiteHeader />
-      <Nuxt />
-    </div>
-  </LazyHydrate>
+  <div class="max-w-2xl mx-auto">
+    <ClientOnly>
+      <VueAnnouncer />
+    </ClientOnly>
+    <LazyHydrate when-idle>
+      <div>
+        <SiteHeader />
+        <Nuxt />
+      </div>
+    </LazyHydrate>
+  </div>
 </template>
 
 <script>
