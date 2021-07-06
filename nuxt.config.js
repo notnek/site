@@ -124,6 +124,7 @@ export default {
     }));
   },
   build: {
+    extractCSS: true,
     postcss: {
       plugins: {
         'postcss-nested': {},
