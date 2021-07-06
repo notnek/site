@@ -242,4 +242,8 @@ h4 {
   }
 }
 
+.announcer {
+  @apply sr-only();
+}
+
 @tailwind utilities;
