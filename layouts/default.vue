@@ -1,7 +1,9 @@
 <template>
   <LazyHydrate when-idle>
     <div class="max-w-2xl mx-auto">
-      <VueAnnouncer />
+      <ClientOnly>
+        <VueAnnouncer />
+      </ClientOnly>
       <SiteHeader />
       <Nuxt />
     </div>
