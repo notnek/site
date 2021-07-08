@@ -2,7 +2,7 @@
 
 My personal site powered by [Nuxt.js](https://nuxtjs.org).
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/862a4d86-2c15-4e27-8a02-534efa4615cb/deploy-status)](https://app.netlify.com/sites/kenton-glass/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0dd718d1-a188-4c36-b9ff-2a8ccd29d6ae/deploy-status)](https://app.netlify.com/sites/kenton-glass/deploys)
 
 ## Build Setup
 
